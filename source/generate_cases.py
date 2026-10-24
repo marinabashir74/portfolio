@@ -375,14 +375,14 @@ CASES = [
 
     <div class="media-stack-right">
       <article class="media-card">
-        <a class="media-card-thumb media-card-thumb--video" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+        <a class="media-card-thumb media-card-thumb--video" href="https://www.facebook.com/photo/?fbid=122135577464866358" target="_blank" rel="noopener noreferrer">
           <span class="media-pill">AI COUTURE · CRIMSON ORGANZA 3-PIECE</span>
           <img src="../assets/clothing/dress-magenta-organza.jpg" alt="Marina Fits crimson keyhole 3-piece suit with embroidered organza dupatta" loading="lazy">
         </a>
         <div class="media-card-body">
           <h3>Crimson Keyhole 3-Piece with Floral Organza Dupatta</h3>
           <p>AI-concepted festive 3-piece silhouette combining a jewel-neck keyhole kameez, floral-embroidered sheer organza dupatta, and wide-leg lace-trimmed trousers.</p>
-          <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+          <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122135577464866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
         </div>
       </article>
 
@@ -408,98 +408,98 @@ CASES = [
 
   <div class="lavish-gallery" aria-label="Marina Fits AI-Designed Dress Lookbook Gallery">
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122135557838866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">FRONT &amp; BACK · LACE CO-ORD</span>
         <img src="../assets/clothing/dress-rose-lace.jpg" alt="Dusty rose two-piece co-ord set with white Chantilly lace sleeves and hem" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Dusty Rose Chantilly Lace 2-Piece Co-Ord Set</h4>
         <p>Dual-angle AI lookbook showing front and back tailoring of a collared dusty pink tunic and trousers with intricate white lace cuffs.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122135557838866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122110692074866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">PASTEL LUXE · MINT 3-PIECE</span>
         <img src="../assets/clothing/dress-mint-organza.jpg" alt="Marina Fits mint pastel 3-piece suit with scalloped organza dupatta" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Mint Pastel Silk &amp; Scalloped Organza 3-Piece</h4>
         <p>Daytime luxury pret design featuring a luminous mint-blue straight shirt paired with a white lace-bordered sheer organza dupatta.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122110692074866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122129609276866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">SILK DRAPE · ICE BLUE</span>
         <img src="../assets/clothing/dress-iceblue-silk.jpg" alt="Marina Fits ice-blue silk puff-sleeve 3-piece ensemble" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Ice-Blue Shimmer Silk Puff-Sleeve Ensemble</h4>
         <p>Softly structured puff-sleeve silk tunic with wide-leg palazzo trousers and a flowing tonal dupatta.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122129609276866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122110297796866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">RESORT PRET · SKY BLUE</span>
         <img src="../assets/clothing/dress-skyblue-kurta.jpg" alt="Marina Fits sky-blue kurta with coral and gold neckline embroidery" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Sky-Blue A-Line Kurta with Coral Embroidery</h4>
         <p>Breezy everyday pret silhouette accented with vibrant coral-pink and gold geometric neckline embroidery.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122110297796866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122109949682866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">MODERN MAXI · ESPRESSO</span>
         <img src="../assets/clothing/dress-brown-tiered.jpg" alt="Marina Fits espresso brown tiered smocked maxi dress" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Espresso Brown Smocked Bodice Tiered Maxi</h4>
         <p>Contemporary fusion wear combining a square-neck smocked bodice, voluminous bishop sleeves, and floor-sweeping tiered skirt.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122109949682866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122109559202866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">MINIMALIST · CAMEL CO-ORD</span>
         <img src="../assets/clothing/dress-camel-coord.jpg" alt="Marina Fits warm camel and black contrast-cuff modern tunic co-ord" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Warm Camel &amp; Black Contrast-Cuff Co-Ord</h4>
         <p>Executive-ready minimalist 2-piece featuring a relaxed V-neck camel tunic with bold black split cuffs and cropped tailored trousers.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122109559202866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122109554846866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">STREET PRET · CHARTREUSE</span>
         <img src="../assets/clothing/dress-olive-street.jpg" alt="Marina Fits chartreuse olive street-style 2-piece co-ord set" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Chartreuse Olive Street-Style 2-Piece Set</h4>
         <p>Modern urban pret lookbook staging a structured olive-lime tunic and cigarette pants in natural outdoor lighting.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122109554846866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
     <article class="lavish-item">
-      <a class="lavish-thumb" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">
+      <a class="lavish-thumb" href="https://www.facebook.com/photo/?fbid=122109948968866358" target="_blank" rel="noopener noreferrer">
         <span class="media-pill">FESTIVE · EMERALD &amp; PINK</span>
         <img src="../assets/clothing/dress-emerald-pink.jpg" alt="Marina Fits emerald embroidered kurta with vibrant pink zari dupatta" loading="lazy">
       </a>
       <div class="lavish-caption">
         <h4>Emerald Zari Kurta &amp; Hot Pink Dupatta</h4>
         <p>Traditional Pakistani festive color-blocking pairing a teal-emerald embroidered kameez with a contrasting magenta-pink zari dupatta.</p>
-        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/profile.php?id=61575990746354" target="_blank" rel="noopener noreferrer">View on Marinafits.pk ↗</a>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/photo/?fbid=122109948968866358" target="_blank" rel="noopener noreferrer">View Post on Marinafits.pk ↗</a>
       </div>
     </article>
 
