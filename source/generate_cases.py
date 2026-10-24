@@ -4,33 +4,105 @@ from html import escape
 ROOT = Path(__file__).parent
 SITE_DIR = ROOT.parent / 'site'
 
+GLORIA_SHOWCASE_HTML = '''
+<div class="brand-bar">
+  <div class="brand-bar-info">
+    <img class="brand-bar-logo" src="../assets/gloria/gloria-logo.jpg" alt="Gloria Cup Cafe official logo" width="64" height="64">
+    <div>
+      <h2>Gloria Cup Café · <span style="color:var(--lime)">@gloriacupcafe</span></h2>
+      <p>271-Block H-2 Top Roof, Johar Town (Opposite Emporium Mall), Lahore · Rooftop Dining, Coffee &amp; Live Match Screenings</p>
+    </div>
+  </div>
+  <div class="brand-bar-actions">
+    <a class="brand-bar-btn" href="https://www.instagram.com/gloriacupcafe/?hl=en" target="_blank" rel="noopener noreferrer">Visit @gloriacupcafe on Instagram ↗</a>
+    <a class="brand-bar-btn brand-bar-btn--ghost" href="https://www.facebook.com/Gloriacupcafe/" target="_blank" rel="noopener noreferrer">Official Facebook ↗</a>
+  </div>
+</div>
+
+<section class="media-showcase" aria-label="Gloria Cup Cafe Live Reels and Visual Content">
+  <div class="media-showcase-head">
+    <div>
+      <div class="section-kicker" style="color:var(--lime)">LIVE CAMPAIGN REELS &amp; MEDIA</div>
+      <h2>From the <span class="serif" style="color:var(--lime)">rooftop feed.</span></h2>
+    </div>
+    <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/gloriacupcafe/?hl=en" target="_blank" rel="noopener noreferrer">Explore all 146+ posts &amp; reels on @gloriacupcafe ↗</a>
+  </div>
+
+  <div class="media-grid">
+    <article class="media-card">
+      <a class="media-card-thumb media-card-thumb--reel" href="https://www.facebook.com/reel/3239960226277686/" target="_blank" rel="noopener noreferrer" aria-label="Watch Gloria Cup Cafe vertical rooftop reel">
+        <span class="media-pill">9:16 VERTICAL REEL · JOHAR TOWN ROOFTOP</span>
+        <img src="../assets/gloria/gloria-reel-rooftop.jpg" alt="Gloria Cup Cafe rooftop food reel opposite Emporium Mall Lahore" loading="lazy">
+        <div class="media-play-badge"><div class="media-play-circle">▶</div></div>
+      </a>
+      <div class="media-card-body">
+        <h3>Rooftop Platter &amp; Ambiance Reel</h3>
+        <p>Short-form vertical reel filmed on the Block H-2 rooftop overlooking Emporium Mall—showcasing loaded burgers, specialty pan pizza, and baked pasta to drive weekend foot traffic and DM bookings.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/reel/3239960226277686/" target="_blank" rel="noopener noreferrer">Watch Full Reel ↗</a>
+          <a class="underline-link" style="color:#fff" href="https://www.instagram.com/gloriacupcafe/?hl=en" target="_blank" rel="noopener noreferrer">View on @gloriacupcafe ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="media-stack-right">
+      <article class="media-card">
+        <div class="media-card-thumb media-card-thumb--video">
+          <iframe src="https://www.youtube.com/embed/72zrp1mawzA" title="Gloria Cup Cafe Lahore Food Deals &amp; Rooftop Feature" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="media-card-body">
+          <h3>Creator Collaboration &amp; Signature Deals Showcase</h3>
+          <p>High-retention food vlogger collaboration and platter showcase highlighting Gloria Cup Café's signature combos, Desperado Steak, crispy zinger platters, and group dining deals.</p>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <a class="media-card-thumb media-card-thumb--video" href="https://www.instagram.com/gloriacupcafe/?hl=en" target="_blank" rel="noopener noreferrer">
+          <span class="media-pill">BRAND IDENTITY &amp; DEAL CAMPAIGNS</span>
+          <img src="../assets/gloria/gloria-deals-feature.jpg" alt="Gloria Cup Cafe amazing deals campaign cover" loading="lazy">
+        </a>
+        <div class="media-card-body">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+            <img src="../assets/gloria/gloria-logo.jpg" alt="Gloria Cup Cafe logo" width="38" height="38" style="border-radius:50%;border:1.5px solid var(--lime)">
+            <h3 style="margin:0">Always-On Social Pillars (@gloriacupcafe)</h3>
+          </div>
+          <p>Built around four repeatable content hooks: <strong>Cappuccino &amp; Coffee Rituals</strong>, <strong>Desperado Steak &amp; Platter Deals</strong>, <strong>Live Cricket Match Rooftop Screenings</strong>, and <strong>Customer Story Reposts</strong>.</p>
+          <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/gloriacupcafe/?hl=en" target="_blank" rel="noopener noreferrer">Open @gloriacupcafe Instagram Feed ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+'''
+
 CASES = [
     dict(
         slug='gloria-cup',
-        title='Gloria Cup',
-        sub='Turning an everyday beverage brand into a 20K+ organic community and daily lifestyle ritual.',
-        kind='Social Growth · Community Architecture',
+        title='Gloria Cup Café',
+        sub='Turning a Johar Town rooftop café into a 20K+ organic community, live-screening hub, and daily food & coffee ritual.',
+        kind='Social Growth · Reels · Community Architecture',
         index='01',
-        image='gloria-cover.svg',
+        image='gloria/gloria-deals-feature.jpg',
         theme='gloria',
         role='Lead Social Media Strategist & Content Director',
-        scope='Instagram Growth · Short-Form Reels · Community',
-        year='20K+ Organic Community Scaled',
-        brand='Gloria Cup (Beverage & Lifestyle)',
-        challenge='Crowded beverage feeds fail when brands post static product shots with no human ritual attached. The opportunity for Gloria Cup was to become a familiar, craveable part of the audience’s daily routine—turning passive scrollers into an active, returning community.',
-        direction='I architected a lifestyle-first social growth engine built around relatable daily occasions, high-retention short-form Reels, and conversational caption frameworks—pairing visual feed cohesion with repeatable organic discovery hooks.',
+        scope='Instagram (@gloriacupcafe) · Reels · Influencer Collabs',
+        year='20K+ Cross-Channel Community Scaled',
+        brand='Gloria Cup Café (Johar Town, Lahore)',
+        extra_showcase=GLORIA_SHOWCASE_HTML,
+        challenge='Located on a rooftop opposite Emporium Mall in Johar Town, Lahore, Gloria Cup Café needed more than static menu posts—it needed to capture the energy of live cricket match screenings, sizzling Desperado Steaks, loaded pizza platters, and evening cappuccinos so local foodies would choose it as their go-to hangout.',
+        direction='I architected a lifestyle- and food-first social engine for @gloriacupcafe built around high-retention rooftop Reels, food creator collaborations, deal-driven carousels, and match-day screening promos that turned online views into packed rooftop tables.',
         ideas=[
-            'Mapped core daily moments and emotional triggers where the beverage naturally belongs in a customer’s day.',
-            'Engineered repeatable short-form Reel formats (recipe rituals, sensory pours, lifestyle transitions) built for watch-time, saves, and shares.',
-            'Established a warm, participatory caption voice and comment-to-DM loop to accelerate early-hour algorithmic reach.',
-            'Used weekly Meta Business Suite retention and engagement signals to double down on winning creative pillars.'
+            'Positioned the rooftop view (opposite Emporium Mall) and retro street-art ambiance as a signature visual backdrop across Reels and Stories.',
+            'Engineered repeatable short-form Reel formats—cheese-pull pizza close-ups, Desperado Steak sizzles, cappuccino pours, and budget platter reveals.',
+            'Partnered with local Lahore food creators and vloggers to showcase group deals and drive high-trust word-of-mouth discovery.',
+            'Built event-driven urgency around live cricket tournament screenings and late-night (2 PM – 12 AM) hangout deals via Instagram and Foodpanda.'
         ],
-        result='Scaled the brand’s organic Instagram community past 20,000+ engaged followers, establishing a recognizable lifestyle identity, higher save-to-impression ratios, and consistent inbound customer inquiries.',
+        result='Scaled the brand’s organic social footprint past 20,000+ engaged local foodies across platforms, driving consistent daily DM/WhatsApp reservations, viral platter Reels, and packed rooftop match screenings.',
         deliverables=[
-            'End-to-End Instagram Strategy, Content Calendar & Grid Direction',
-            'High-Retention Short-Form Reel Production & Hook Scripting (CapCut Pro, Canva, Figma)',
-            'Active Community Nurturing & Micro-Influencer Collaboration Playbook',
-            'Meta Business Suite Performance Tracking & Monthly Iteration'
+            'End-to-End Instagram Management & Grid Direction (@gloriacupcafe)',
+            'On-Site Rooftop Reel Production, Creator Collabs & Hook Scripting',
+            'Promotional Deal Graphics, Platter Campaigns & Live Screening Event Push',
+            'Community Management, Story Repost Loops & Local Discovery SEO'
         ],
         next='furniture-corner',
         next_title='Furniture Corner'
@@ -47,6 +119,7 @@ CASES = [
         scope='Visual Catalogs · Meta Ads · Conversion Copy',
         year='+40% YoY Revenue Expansion',
         brand='Furniture Corner (Retail & E-Commerce)',
+        extra_showcase='',
         challenge='High-consideration home furniture never sells on specifications alone. Showing a chair or sofa in isolation is one thing; helping a buyer immediately picture how it transforms their living space—and giving them the confidence to inquire—is what drives revenue.',
         direction='I bridged the gap between editorial interior inspiration and direct-response commerce—rebuilding Furniture Corner’s visual catalog system and pairing it with targeted Meta Business Suite campaigns engineered to convert high-intent home buyers.',
         ideas=[
@@ -77,6 +150,7 @@ CASES = [
         scope='Midjourney · Kling AI · Runway Gen-3 · ElevenLabs',
         year='100% Generative AI Studio Pipeline',
         brand='3D Animated Series & AI Production Showcase',
+        extra_showcase='',
         challenge='Most AI-generated video fails commercially because characters morph from shot to shot, motion feels random, and audio lacks emotional timing. Whether producing a children’s edutainment series or a branded 3D mascot campaign for an international agency, commercial work requires strict visual continuity and narrative control.',
         direction='I engineered an end-to-end 3D generative production pipeline for Alphabet Jungle Safari—combining locked character model sheets with controlled camera kinematics, expressive vocal synthesis, and retention-driven editorial pacing.',
         ideas=[
@@ -93,7 +167,7 @@ CASES = [
             'High-CTR Thumbnail Design & YouTube Studio SEO Architecture'
         ],
         next='gloria-cup',
-        next_title='Gloria Cup'
+        next_title='Gloria Cup Café'
     )
 ]
 
@@ -111,9 +185,10 @@ for c in CASES:
     head = HEAD.format(desc=desc, title=escape(c['title']))
     bullets = ''.join('<li>' + escape(b) + '</li>' for b in c['ideas'])
     deliverables = ''.join('<li>' + escape(b) + '</li>' for b in c['deliverables'])
+    extra_html = c.get('extra_showcase', '')
     html = (
         head
-        + f'''<body class="case-page--{c['theme']}">{NAV}<main id="main"><section class="case-header"><div class="container"><div class="case-breadcrumb"><a href="../index.html">Home</a><span> / </span><a href="../index.html#work">Selected work</a><span> / </span>{escape(c['title'])}</div><div class="case-kicker">{escape(c['index'])} / {escape(c['kind'])}</div><h1 class="display case-title">{escape(c['title'])}<span style="color:var(--coral)">.</span></h1><p class="case-subtitle">{escape(c['sub'])}</p></div></section><div class="container"><img class="case-art" src="../assets/{c['image']}" alt="{escape(c['title'])} case study visual cover" width="1200" height="1020"><div class="case-details"><div class="case-detail"><small>Client / Showcase</small><strong>{escape(c['brand'])}</strong></div><div class="case-detail"><small>Role</small><strong>{escape(c['role'])}</strong></div><div class="case-detail"><small>Core Stack &amp; Scope</small><strong>{escape(c['scope'])}</strong></div><div class="case-detail"><small>Key Highlight</small><strong>{escape(c['year'])}</strong></div></div></div><div class="container case-content"><section class="case-story"><h2>The challenge.</h2><div><p>{escape(c['challenge'])}</p></div></section><section class="case-story"><h2>Strategic direction.</h2><div><p>{escape(c['direction'])}</p></div></section><section class="case-story"><h2>Execution in motion.</h2><div><ul>{bullets}</ul></div></section><section class="case-story"><h2>Commercial impact.</h2><div><p>{escape(c['result'])}</p></div></section><section class="case-story"><h2>Deliverables &amp; stack.</h2><div><p>Core production capabilities and deliverables executed in this workflow:</p><ul>{deliverables}</ul></div></section><div class="case-follow"><div><div class="eyebrow">KEEP EXPLORING</div><h3>Up next: <span class="serif">{escape(c['next_title'])}</span></h3></div><a href="{c['next']}.html">View next story ↗</a></div></div><section class="contact-section"><div class="container"><div class="section-kicker">WANT RESULTS LIKE THIS?</div><h2 class="display" style="font-size:clamp(67px,10vw,145px)">Let's <span class="serif">build it.</span></h2><div class="contact-buttons" style="margin-top:28px"><a class="button" href="../contact.html">Book a project or retainer ↗</a><a class="button button--outline" href="https://wa.me/923024292224?text=Hi%20Marina%2C%20I%20saw%20your%20{escape(c['title'])}%20case%20study%20and%20would%20love%20to%20chat." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div></div></section></main>{FOOT}</body></html>'''
+        + f'''<body class="case-page--{c['theme']}">{NAV}<main id="main"><section class="case-header"><div class="container"><div class="case-breadcrumb"><a href="../index.html">Home</a><span> / </span><a href="../index.html#work">Selected work</a><span> / </span>{escape(c['title'])}</div><div class="case-kicker">{escape(c['index'])} / {escape(c['kind'])}</div><h1 class="display case-title">{escape(c['title'])}<span style="color:var(--coral)">.</span></h1><p class="case-subtitle">{escape(c['sub'])}</p></div></section><div class="container">{extra_html}<img class="case-art" src="../assets/{c['image']}" alt="{escape(c['title'])} case study visual cover" width="1200" height="1020"><div class="case-details"><div class="case-detail"><small>Client / Showcase</small><strong>{escape(c['brand'])}</strong></div><div class="case-detail"><small>Role</small><strong>{escape(c['role'])}</strong></div><div class="case-detail"><small>Core Stack &amp; Scope</small><strong>{escape(c['scope'])}</strong></div><div class="case-detail"><small>Key Highlight</small><strong>{escape(c['year'])}</strong></div></div></div><div class="container case-content"><section class="case-story"><h2>The challenge.</h2><div><p>{escape(c['challenge'])}</p></div></section><section class="case-story"><h2>Strategic direction.</h2><div><p>{escape(c['direction'])}</p></div></section><section class="case-story"><h2>Execution in motion.</h2><div><ul>{bullets}</ul></div></section><section class="case-story"><h2>Commercial impact.</h2><div><p>{escape(c['result'])}</p></div></section><section class="case-story"><h2>Deliverables &amp; stack.</h2><div><p>Core production capabilities and deliverables executed in this workflow:</p><ul>{deliverables}</ul></div></section><div class="case-follow"><div><div class="eyebrow">KEEP EXPLORING</div><h3>Up next: <span class="serif">{escape(c['next_title'])}</span></h3></div><a href="{c['next']}.html">View next story ↗</a></div></div><section class="contact-section"><div class="container"><div class="section-kicker">WANT RESULTS LIKE THIS?</div><h2 class="display" style="font-size:clamp(67px,10vw,145px)">Let's <span class="serif">build it.</span></h2><div class="contact-buttons" style="margin-top:28px"><a class="button" href="../contact.html">Book a project or retainer ↗</a><a class="button button--outline" href="https://wa.me/923024292224?text=Hi%20Marina%2C%20I%20saw%20your%20{escape(c['title'])}%20case%20study%20and%20would%20love%20to%20chat." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div></div></section></main>{FOOT}</body></html>'''
     )
     (out_dir / f"{c['slug']}.html").write_text(html, encoding='utf-8')
 
