@@ -183,7 +183,7 @@ ALPHABET_SHOWCASE_HTML = '''
     <div class="brand-bar-logo" style="display:grid;place-items:center;background:var(--lime);color:var(--ink);font-weight:900;font-size:22px">3D</div>
     <div>
       <h2>Alphabet Adventure Land · <span style="color:var(--lime)">3D AI Animated Series</span></h2>
-      <p>Multi-Episode 3D Character Continuity · Midjourney (--cref) · Kling AI &amp; Runway Gen-3 · ElevenLabs Lip-Sync &amp; Foley</p>
+      <p>Multi-Episode 3D Character Continuity · Google Flow · Picsart AI · Midjourney (--cref) · Kling AI &amp; Runway Gen-3 · ElevenLabs Lip-Sync</p>
     </div>
   </div>
   <div class="brand-bar-actions">
@@ -299,22 +299,22 @@ CASES = [
         video_hero='alphabet/animator-reel.mp4',
         theme='alphabet',
         role='AI Video Director & Generative Pipeline Architect',
-        scope='Midjourney · Kling AI · Runway Gen-3 · ElevenLabs',
+        scope='Google Flow · Picsart AI · Midjourney · Kling AI · Runway Gen-3 · ElevenLabs',
         year='Multi-Episode 3D Character Continuity',
         brand='Alphabet Adventure Land (Episodes C & D)',
         extra_showcase=ALPHABET_SHOWCASE_HTML,
         challenge='Most AI-generated video fails commercially because characters morph from shot to shot, outfits change randomly, and audio lacks emotional timing. Whether producing a children’s edutainment series or a branded 3D mascot campaign for an international agency, commercial work requires strict frame-to-frame character continuity.',
         direction='I engineered an end-to-end 3D generative production pipeline for Alphabet Adventure Land—locking character identity across episodes (Episode C: Cat & Cup and Episode D: Dog & Drum) while directing expressive kinematics, lip-synced voiceovers, and layered foley sound design.',
         ideas=[
-            'Locked 3D character model sheets in Midjourney (the boy in the blue zip hoodie & yellow tee, and the girl in pigtails & rainbow-hem pink dress) so they remain 100% identical across separate episodes.',
-            'Directed purposeful prop interaction and motion kinematics using Kling AI and Runway Gen-3—from rhythmic drumstick beats to waving, clapping, and pet reactions.',
+            'Locked 3D character model sheets and visual assets using Midjourney and Picsart AI (the boy in the blue zip hoodie & yellow tee, and the girl in pigtails & rainbow-hem pink dress) so they remain 100% identical across separate episodes.',
+            'Directed purposeful prop interaction, cinematic scene transitions, and motion kinematics using Google Flow, Kling AI, and Runway Gen-3—from rhythmic drumstick beats to waving, clapping, and pet reactions.',
             'Engineered expressive child voiceovers, lip-sync, and layered sound effects (drum hits, cat meows, magical chimes, forest ambiance) using ElevenLabs and CapCut Pro.',
             'Structured visual pacing and glowing 3D particle typography around YouTube retention curves to hold viewer attention from the first second.'
         ],
         result='A repeatable, broadcast-ready 3D AI animation pipeline that achieves Pixar-style character warmth and multi-episode continuity at a fraction of traditional 3D studio timelines—ideal for branded mascots, commercial storytelling, and scalable YouTube IP channels.',
         deliverables=[
-            'Multi-Episode 3D Character Bible & Style Locking (Midjourney)',
-            'Character Kinematics, Prop Interaction & Camera Motion (Kling AI & Runway Gen-3)',
+            'Multi-Episode 3D Character Bible & Visual Asset Refinement (Midjourney & Picsart AI)',
+            'Cinematic AI Video Generation, Character Kinematics & Camera Motion (Google Flow, Kling AI & Runway Gen-3)',
             'Expressive Voice Synthesis, Lip-Sync & Foley Audio Engineering (ElevenLabs & CapCut Pro)',
             'Turnkey YouTube Series Production & Retention Optimization'
         ],
@@ -330,7 +330,7 @@ CASES = [
         image='clothing/dress-magenta-organza.jpg',
         theme='clothing',
         role='Founder, AI Fashion Designer & Social Media Manager',
-        scope='AI Dress Design · Facebook (Marinafits.pk) · Instagram (@marina_fits_)',
+        scope='Picsart AI · Google Flow · AI Dress Design · Facebook (Marinafits.pk) · Instagram (@marina_fits_)',
         year='1.8K+ FB Community & 10+ AI Dress Lines',
         brand='Marina Fits · Marinafits.pk (“Elegance Woven For You”)',
         extra_showcase='''
@@ -518,17 +518,17 @@ CASES = [
 </section>
 ''',
         challenge='Launching an independent women’s clothing brand in Pakistan traditionally demands massive upfront capital for sample stitching, studio photography, model bookings, and location shoots before testing which silhouettes customers actually want to buy.',
-        direction='I founded and launched Marina Fits (Marinafits.pk — “Elegance Woven For You”), using generative AI to design original 2-piece and 3-piece women’s dress collections, visualize realistic fabric drapes (organza, silk, chantilly lace, khaddar, and lawn) on virtual models, and manage the brand’s entire Facebook and Instagram presence.',
+        direction='I founded and launched Marina Fits (Marinafits.pk — “Elegance Woven For You”), using Picsart AI, Google Flow, and generative AI design workflows to create original 2-piece and 3-piece women’s dress collections, visualize realistic fabric drapes (organza, silk, chantilly lace, khaddar, and lawn) on virtual models, and manage the brand’s entire Facebook and Instagram presence.',
         ideas=[
-            'Designed 10+ original women’s wear silhouettes using generative AI—ranging from fringed deep-teal minimalist co-ords and dusty-rose lace sets to festive embroidered organza 3-piece suits.',
-            'Used multi-angle AI fashion prototyping (including front-and-back tailoring sheets) to validate cuts, sleeve detailing, and color palettes before physical production.',
+            'Designed 10+ original women’s wear silhouettes using Picsart AI, Google Flow, and generative AI—ranging from fringed deep-teal minimalist co-ords and dusty-rose lace sets to festive embroidered organza 3-piece suits.',
+            'Used multi-angle AI fashion prototyping and Picsart AI studio editing (including front-and-back tailoring sheets) to validate cuts, sleeve detailing, and color palettes before physical production.',
             'Created the complete Marina Fits visual identity (“Elegance Woven For You”), plum continuous-line couture logo, and editorial typography.',
             'Built and manage the official Facebook page (Marinafits.pk, 1,880+ followers) and Instagram (@marina_fits_), handling catalog copywriting, community engagement, and WhatsApp/DM order inquiries.'
         ],
         result='Successfully launched Marinafits.pk from concept to a 1,880+ follower Facebook community and multi-collection digital storefront—eliminating traditional photoshoot overhead while proving how generative AI can power end-to-end fashion design and e-commerce merchandising.',
         deliverables=[
             'Founder & Creative Direction — Marina Fits (Marinafits.pk)',
-            'AI-Assisted Apparel & Dress Design (2-Piece Co-Ords, 3-Piece Organza/Silk Suits & Tiered Maxis)',
+            'AI-Assisted Apparel & Dress Design with Picsart AI & Google Flow (2-Piece Co-Ords, 3-Piece Organza/Silk Suits & Tiered Maxis)',
             'Virtual Model Editorial Lookbooks & Front/Back Tailoring Visualization',
             'End-to-End Facebook & Instagram (@marina_fits_) Page Management & Social Merchandising'
         ],
