@@ -1,0 +1,8 @@
+MARINA BASHIR — PORTFOLIO REDESIGN
+
+DEPLOY: Drag the /site folder to Netlify (no build needed).
+VIEW: Open site/index.html in a modern browser.
+READ: documentation/README.md, CONTENT-VALIDATION.md and ASSET-SPEC.md.
+PREVIEWS: /previews folder.
+
+IMPORTANT: Client work and reported impact need verification; artwork is original but illustrative. Do not publish as claimed client deliverables.
