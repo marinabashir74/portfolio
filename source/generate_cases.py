@@ -47,30 +47,132 @@ GLORIA_SHOWCASE_HTML = '''
 
     <div class="media-stack-right">
       <article class="media-card">
-        <div class="media-card-thumb media-card-thumb--video">
-          <iframe src="https://www.youtube.com/embed/72zrp1mawzA" title="Gloria Cup Cafe Lahore Food Deals &amp; Rooftop Feature" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="media-card-body">
-          <h3>Creator Collaboration &amp; Signature Deals Showcase</h3>
-          <p>High-retention food vlogger collaboration and platter showcase highlighting Gloria Cup Café's signature combos, Desperado Steak, crispy zinger platters, and group dining deals.</p>
-        </div>
-      </article>
-
-      <article class="media-card">
         <a class="media-card-thumb media-card-thumb--video" href="https://www.instagram.com/gloriacupcafe/?hl=en" target="_blank" rel="noopener noreferrer">
-          <span class="media-pill">BRAND IDENTITY &amp; DEAL CAMPAIGNS</span>
+          <span class="media-pill">SIGNATURE PLATTERS &amp; DEALS</span>
           <img src="../assets/gloria/gloria-deals-feature.jpg" alt="Gloria Cup Cafe amazing deals campaign cover" loading="lazy">
         </a>
         <div class="media-card-body">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
             <img src="../assets/gloria/gloria-logo.jpg" alt="Gloria Cup Cafe logo" width="38" height="38" style="border-radius:50%;border:1.5px solid var(--lime)">
-            <h3 style="margin:0">Always-On Social Pillars (@gloriacupcafe)</h3>
+            <h3 style="margin:0">Signature Platter &amp; Creator Reels (@gloriacupcafe)</h3>
           </div>
-          <p>Built around four repeatable content hooks: <strong>Cappuccino &amp; Coffee Rituals</strong>, <strong>Desperado Steak &amp; Platter Deals</strong>, <strong>Live Cricket Match Rooftop Screenings</strong>, and <strong>Customer Story Reposts</strong>.</p>
+          <p>High-retention short-form Reels and creator collaborations built around four repeatable pillars: <strong>Cappuccino &amp; Coffee Rituals</strong>, <strong>Desperado Steak &amp; Platter Deals</strong>, <strong>Live Cricket Match Rooftop Screenings</strong>, and <strong>Customer Story Reposts</strong>.</p>
           <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/gloriacupcafe/?hl=en" target="_blank" rel="noopener noreferrer">Open @gloriacupcafe Instagram Feed ↗</a>
         </div>
       </article>
     </div>
+  </div>
+</section>
+'''
+
+FURNITURE_SHOWCASE_HTML = '''
+<div class="brand-bar">
+  <div class="brand-bar-info">
+    <img class="brand-bar-logo" src="../assets/furniture/furniture-logo.jpg" alt="Furniture Corner official logo" width="64" height="64" style="background:#fff">
+    <div>
+      <h2>Furniture Corner · <span style="color:var(--lime)">@furniturecorner.pk</span></h2>
+      <p>6 Block B1, PIA Road, Hakim Chowk, Lahore · Bespoke Luxury Dining, Bedroom, Sofa &amp; Interior Collections</p>
+    </div>
+  </div>
+  <div class="brand-bar-actions">
+    <a class="brand-bar-btn" href="https://www.instagram.com/furniturecorner.pk/?hl=en" target="_blank" rel="noopener noreferrer">Visit @furniturecorner.pk on Instagram ↗</a>
+    <a class="brand-bar-btn brand-bar-btn--ghost" href="https://furniturecorner.pk/" target="_blank" rel="noopener noreferrer">furniturecorner.pk ↗</a>
+  </div>
+</div>
+
+<section class="media-showcase" aria-label="Furniture Corner Live Reels and Luxury Catalog">
+  <div class="media-showcase-head">
+    <div>
+      <div class="section-kicker" style="color:var(--lime)">SHORT-FORM REELS &amp; LAVISH CATALOG</div>
+      <h2>Luxury in <span class="serif" style="color:var(--lime)">every frame.</span></h2>
+    </div>
+    <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/furniturecorner.pk/?hl=en" target="_blank" rel="noopener noreferrer">Explore all 290+ posts &amp; reels on @furniturecorner.pk ↗</a>
+  </div>
+
+  <div class="media-grid">
+    <article class="media-card">
+      <a class="media-card-thumb media-card-thumb--reel" href="https://www.facebook.com/reel/1771560293769205/" target="_blank" rel="noopener noreferrer" aria-label="Watch Furniture Corner Fancy Bubble Bed Set Reel">
+        <span class="media-pill">9:16 VERTICAL REEL · BOUCLÉ BED SET</span>
+        <img src="../assets/furniture/fb_post1.jpg" alt="Furniture Corner Fancy Bubble Bed Set in Shiny Boucle Fabric Reel" loading="lazy">
+        <div class="media-play-badge"><div class="media-play-circle">▶</div></div>
+      </a>
+      <div class="media-card-body">
+        <h3>Fancy Bubble Bed Set · Bouclé Fabric Reel</h3>
+        <p>Short-form vertical showroom reel highlighting the plush channel-tufted bouclé silhouette, matching vanity console, and warm ambient lighting—driving direct WhatsApp price inquiries.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/reel/1771560293769205/" target="_blank" rel="noopener noreferrer">Watch Bed Set Reel ↗</a>
+          <a class="underline-link" style="color:#fff" href="https://www.instagram.com/furniturecorner.pk/?hl=en" target="_blank" rel="noopener noreferrer">View on @furniturecorner.pk ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="media-stack-right">
+      <article class="media-card">
+        <a class="media-card-thumb media-card-thumb--video" href="https://www.facebook.com/reel/9033300306705962/" target="_blank" rel="noopener noreferrer" aria-label="Watch Furniture Corner 10-Chair Royal Dining Set Reel">
+          <span class="media-pill">SHOWROOM REEL · 10-SEATER ROYAL DINING</span>
+          <img src="../assets/furniture/fb_post2.jpg" alt="Furniture Corner 10 Chairs Royal Gold Dining Table Reel" loading="lazy">
+          <div class="media-play-badge"><div class="media-play-circle">▶</div></div>
+        </a>
+        <div class="media-card-body">
+          <h3>10-Seater Hand-Carved Royal Dining Reel</h3>
+          <p>Close-up motion reel showcasing hand-carved gold leaf detailing, pleated velvet chair backs, and inlaid marble tabletop craftsmanship for luxury home buyers.</p>
+          <a class="underline-link" style="color:var(--lime)" href="https://www.facebook.com/reel/9033300306705962/" target="_blank" rel="noopener noreferrer">Watch Dining Reel ↗</a>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <a class="media-card-thumb media-card-thumb--video" href="https://www.instagram.com/p/C0gzFfburrp/" target="_blank" rel="noopener noreferrer">
+          <span class="media-pill">BRANDED CATALOG · VELVET &amp; GOLD LOUNGE</span>
+          <img src="../assets/furniture/ig_info.jpg" alt="Furniture Corner turquoise velvet and gold accent chairs post" loading="lazy">
+        </a>
+        <div class="media-card-body">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+            <img src="../assets/furniture/furniture-logo.jpg" alt="Furniture Corner logo" width="38" height="38" style="border-radius:50%;border:1.5px solid var(--lime);background:#fff">
+            <h3 style="margin:0">Statement Velvet &amp; Live-Edge Collection</h3>
+          </div>
+          <p>Branded Instagram catalog showcase pairing scalloped turquoise velvet accent chairs with a live-edge solid wood coffee table to inspire high-ticket living room makeovers.</p>
+          <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/p/C0gzFfburrp/" target="_blank" rel="noopener noreferrer">View Post on Instagram ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="lavish-gallery" aria-label="Lavish Furniture Catalog Highlights">
+    <article class="lavish-item">
+      <a class="lavish-thumb" href="https://www.instagram.com/p/DdHPX1EjS6N/" target="_blank" rel="noopener noreferrer">
+        <span class="media-pill">ROYAL DINING · 8 CHAIRS</span>
+        <img src="../assets/furniture/ig_dining.jpg" alt="Elegant 8 Chairs Dining Table Featuring Premium Wooden Craftsmanship" loading="lazy">
+      </a>
+      <div class="lavish-caption">
+        <h4>Royal Gold &amp; Inlaid Marble 8-Chair Dining Set</h4>
+        <p>Staged luxury dining room photography highlighting ornate gold-carved crowns, tufted upholstery, and warm architectural shelving.</p>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/p/DdHPX1EjS6N/" target="_blank" rel="noopener noreferrer">View on @furniturecorner.pk ↗</a>
+      </div>
+    </article>
+
+    <article class="lavish-item">
+      <a class="lavish-thumb" href="https://www.instagram.com/p/Ddi7nptDVZD/" target="_blank" rel="noopener noreferrer">
+        <span class="media-pill">MODERN LUXE · MEDIA WALL</span>
+        <img src="../assets/furniture/ig_led.jpg" alt="Furniture Corner Modern Luxe LED Rack" loading="lazy">
+      </a>
+      <div class="lavish-caption">
+        <h4>Modern Luxe Architectural LED Media Console</h4>
+        <p>Minimalist walnut and smoked-glass LED console staged with warm indirect lighting and editorial decor for contemporary lounges.</p>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/p/Ddi7nptDVZD/" target="_blank" rel="noopener noreferrer">View on @furniturecorner.pk ↗</a>
+      </div>
+    </article>
+
+    <article class="lavish-item">
+      <a class="lavish-thumb" href="https://www.instagram.com/p/DeEKPYvDbgv/" target="_blank" rel="noopener noreferrer">
+        <span class="media-pill">BESPOKE COMFORT · LOUNGE</span>
+        <img src="../assets/furniture/ig_rocking.jpg" alt="Furniture Corner Luxury Wooden Rocking Chair" loading="lazy">
+      </a>
+      <div class="lavish-caption">
+        <h4>Luxury Tufted &amp; Solid Wood Rocking Chair</h4>
+        <p>Close-up texture and craftsmanship shot combining deep charcoal biscuit tufting with polished mahogany-toned solid wood arms.</p>
+        <a class="underline-link" style="color:var(--lime)" href="https://www.instagram.com/p/DeEKPYvDbgv/" target="_blank" rel="noopener noreferrer">View on @furniturecorner.pk ↗</a>
+      </div>
+    </article>
   </div>
 </section>
 '''
@@ -110,30 +212,30 @@ CASES = [
     dict(
         slug='furniture-corner',
         title='Furniture Corner',
-        sub='Transforming static furniture listings into high-converting visual stories and +40% year-over-year commercial growth.',
-        kind='Commercial Content · Meta Campaigns',
+        sub='Transforming luxury furniture collections into lavish visual stories, showroom Reels, and +40% year-over-year commercial growth.',
+        kind='Luxury Catalog · Reels · Meta Campaigns',
         index='02',
-        image='furniture-cover.svg',
+        image='furniture/ig_dining.jpg',
         theme='furniture',
         role='Performance Content Strategist & Meta Campaign Lead',
-        scope='Visual Catalogs · Meta Ads · Conversion Copy',
+        scope='Instagram (@furniturecorner.pk) · Showroom Reels · Meta Ads',
         year='+40% YoY Revenue Expansion',
-        brand='Furniture Corner (Retail & E-Commerce)',
-        extra_showcase='',
-        challenge='High-consideration home furniture never sells on specifications alone. Showing a chair or sofa in isolation is one thing; helping a buyer immediately picture how it transforms their living space—and giving them the confidence to inquire—is what drives revenue.',
-        direction='I bridged the gap between editorial interior inspiration and direct-response commerce—rebuilding Furniture Corner’s visual catalog system and pairing it with targeted Meta Business Suite campaigns engineered to convert high-intent home buyers.',
+        brand='Furniture Corner (PIA Road, Lahore · furniturecorner.pk)',
+        extra_showcase=FURNITURE_SHOWCASE_HTML,
+        challenge='High-ticket luxury furniture—from hand-carved 8- and 10-seater royal dining sets to bouclé bedroom suites—never sells on specifications alone. Buyers need to feel the craftsmanship, texture, and room presence before they ever message on WhatsApp or visit the PIA Road showroom.',
+        direction='I elevated @furniturecorner.pk into a lavish digital showroom—combining editorial interior staging, close-up texture Reels, and full-funnel Meta Business Suite catalog campaigns engineered to convert high-intent homeowners and interior buyers.',
         ideas=[
-            'Redesigned product creative around real buyer decisions—room styling, dimensions, material texture, and spatial flow.',
-            'Built scroll-stopping multi-slide carousels and staged video features that work seamlessly across organic feeds and paid placements.',
-            'Structured full-funnel Meta Business Suite ad campaigns targeting active homeowners, movers, and interior shoppers.',
-            'Optimized direct-response copy and WhatsApp/DM inquiry handoffs to shorten the path from first click to closed sale.'
+            'Directed lavish, warm-lit room staging for flagship collections: Royal Gold & Marble Dining Sets, Bouclé Bubble Bed Sets, and Modern Luxe LED Consoles.',
+            'Produced short-form vertical Showroom Reels that pan across wood carving details, velvet/bouclé textures, and full bedroom/dining setups.',
+            'Structured targeted Meta Business Suite ad campaigns reaching active homeowners, bridal/dowry shoppers, and interior design enthusiasts.',
+            'Streamlined the Instagram-to-WhatsApp (0309-9566665) inquiry funnel to turn Reel views and post saves into showroom visits and nationwide orders.'
         ],
-        result='Drove a +40% year-over-year commercial revenue expansion through stronger catalog conversion rates, lower cost-per-inquiry on Meta placements, and higher-intent showroom and online orders.',
+        result='Drove a +40% year-over-year commercial revenue expansion across 290+ curated Instagram posts and Reels, significantly lowering cost-per-inquiry on Meta placements and increasing high-ticket dining and bedroom set orders.',
         deliverables=[
-            'Conversion-Engineered Visual Product Catalogs & Carousel Systems',
-            'Meta Business Suite Campaign Setup, Targeting & Creative A/B Testing',
-            'Direct-Response Sales Copywriting & WhatsApp/DM Inquiry Funnel',
-            'Monthly Commercial Attribution & Merchandising Optimization'
+            'Lavish Digital Catalog & Instagram Grid Curation (@furniturecorner.pk)',
+            'Short-Form Showroom Reels (Bouclé Bed Sets, Royal Dining & Lounge Collections)',
+            'Meta Business Suite Ad Architecture, Retargeting & Audience Segmentation',
+            'Direct-Response Copywriting & WhatsApp/Showroom Conversion Funnel'
         ],
         next='alphabet-jungle',
         next_title='Alphabet Jungle Safari'
