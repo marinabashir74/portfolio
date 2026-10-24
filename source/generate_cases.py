@@ -177,6 +177,55 @@ FURNITURE_SHOWCASE_HTML = '''
 </section>
 '''
 
+ALPHABET_SHOWCASE_HTML = '''
+<div class="brand-bar">
+  <div class="brand-bar-info">
+    <div class="brand-bar-logo" style="display:grid;place-items:center;background:var(--lime);color:var(--ink);font-weight:900;font-size:22px">3D</div>
+    <div>
+      <h2>Alphabet Adventure Land · <span style="color:var(--lime)">3D AI Animated Series</span></h2>
+      <p>Multi-Episode 3D Character Continuity · Midjourney (--cref) · Kling AI &amp; Runway Gen-3 · ElevenLabs Lip-Sync &amp; Foley</p>
+    </div>
+  </div>
+  <div class="brand-bar-actions">
+    <a class="brand-bar-btn" href="../contact.html?service=AI%20video%20and%20animation">Commission 3D AI Video ↗</a>
+  </div>
+</div>
+
+<section class="media-showcase" aria-label="Alphabet Adventure Land Playable 3D AI Episodes">
+  <div class="media-showcase-head">
+    <div>
+      <div class="section-kicker" style="color:var(--lime)">PLAYABLE STUDIO REELS · TURN SOUND ON</div>
+      <h2>Same characters.<br><span class="serif" style="color:var(--lime)">Every episode.</span></h2>
+    </div>
+    <p style="max-width:410px;color:#bec7bd;font-size:14px;line-height:1.65;margin:0">Notice how both protagonists—the boy in the blue hoodie and the girl in the rainbow-hem pink dress—stay 100% consistent in facial structure, wardrobe, and Pixar-grade lighting across separate episodes.</p>
+  </div>
+
+  <div class="media-grid--two-videos">
+    <article class="media-card">
+      <div class="media-card-thumb media-card-thumb--video">
+        <span class="media-pill">EPISODE D · DOG &amp; DRUM (WITH AUDIO)</span>
+        <video src="../assets/alphabet/animator-reel.mp4#t=0.1" controls playsinline preload="metadata" aria-label="Alphabet Adventure Land Episode D: D is for Dog and Drum"></video>
+      </div>
+      <div class="media-card-body">
+        <h3>Episode D — “D is for Dog, D is for Drum”</h3>
+        <p>Full 3D character kinematics and audio sync: the boy plays a patterned drum with drumsticks while the golden puppy barks on beat and the girl claps along beneath magical particle typography.</p>
+      </div>
+    </article>
+
+    <article class="media-card">
+      <div class="media-card-thumb media-card-thumb--video">
+        <span class="media-pill">EPISODE C · CAT &amp; CUP (WITH AUDIO)</span>
+        <video src="../assets/alphabet/alphabet-adventure-ep-c.mp4#t=0.1" controls playsinline preload="metadata" aria-label="Alphabet Adventure Land Episode C: C is for Cat and Cup"></video>
+      </div>
+      <div class="media-card-body">
+        <h3>Episode C — “C is for Cat, C is for Cup”</h3>
+        <p>Multi-episode character continuity in action: the exact same two 3D protagonists return in a sunlit garden scene alongside an animated orange tabby cat (with synced meow foley) and a smiling teacup.</p>
+      </div>
+    </article>
+  </div>
+</section>
+'''
+
 CASES = [
     dict(
         slug='gloria-cup',
@@ -238,35 +287,36 @@ CASES = [
             'Direct-Response Copywriting & WhatsApp/Showroom Conversion Funnel'
         ],
         next='alphabet-jungle',
-        next_title='Alphabet Jungle Safari'
+        next_title='Alphabet Adventure Land'
     ),
     dict(
         slug='alphabet-jungle',
-        title='Alphabet Jungle Safari',
-        sub='Studio-grade 3D character consistency and generative AI motion—proving what is possible with a disciplined multi-tool AI video pipeline.',
+        title='Alphabet Adventure Land',
+        sub='Studio-grade 3D character consistency and generative AI motion across episodes—proving what is possible with a disciplined multi-tool AI video pipeline.',
         kind='AI Video Studio · 3D Character Pipeline',
         index='03',
         image='alphabet-cover.svg',
+        video_hero='alphabet/animator-reel.mp4',
         theme='alphabet',
         role='AI Video Director & Generative Pipeline Architect',
         scope='Midjourney · Kling AI · Runway Gen-3 · ElevenLabs',
-        year='100% Generative AI Studio Pipeline',
-        brand='3D Animated Series & AI Production Showcase',
-        extra_showcase='',
-        challenge='Most AI-generated video fails commercially because characters morph from shot to shot, motion feels random, and audio lacks emotional timing. Whether producing a children’s edutainment series or a branded 3D mascot campaign for an international agency, commercial work requires strict visual continuity and narrative control.',
-        direction='I engineered an end-to-end 3D generative production pipeline for Alphabet Jungle Safari—combining locked character model sheets with controlled camera kinematics, expressive vocal synthesis, and retention-driven editorial pacing.',
+        year='Multi-Episode 3D Character Continuity',
+        brand='Alphabet Adventure Land (Episodes C & D)',
+        extra_showcase=ALPHABET_SHOWCASE_HTML,
+        challenge='Most AI-generated video fails commercially because characters morph from shot to shot, outfits change randomly, and audio lacks emotional timing. Whether producing a children’s edutainment series or a branded 3D mascot campaign for an international agency, commercial work requires strict frame-to-frame character continuity.',
+        direction='I engineered an end-to-end 3D generative production pipeline for Alphabet Adventure Land—locking character identity across episodes (Episode C: Cat & Cup and Episode D: Dog & Drum) while directing expressive kinematics, lip-synced voiceovers, and layered foley sound design.',
         ideas=[
-            'Built multi-angle 3D character model sheets and locked color/lighting bibles in Midjourney so characters remain 100% recognizable across every scene.',
-            'Directed purposeful character kinematics and smooth camera motion using Kling AI and Runway Gen-3, eliminating temporal distortion.',
-            'Engineered expressive voiceovers, rhythmic phonics hooks, and layered foley sound design using ElevenLabs and CapCut Pro.',
-            'Structured scene pacing and visual hooks around YouTube Studio retention curves to capture attention in the first 5 seconds and hold viewers to completion.'
+            'Locked 3D character model sheets in Midjourney (the boy in the blue zip hoodie & yellow tee, and the girl in pigtails & rainbow-hem pink dress) so they remain 100% identical across separate episodes.',
+            'Directed purposeful prop interaction and motion kinematics using Kling AI and Runway Gen-3—from rhythmic drumstick beats to waving, clapping, and pet reactions.',
+            'Engineered expressive child voiceovers, lip-sync, and layered sound effects (drum hits, cat meows, magical chimes, forest ambiance) using ElevenLabs and CapCut Pro.',
+            'Structured visual pacing and glowing 3D particle typography around YouTube retention curves to hold viewer attention from the first second.'
         ],
-        result='A repeatable, studio-grade AI animation workflow that delivers the warmth and character consistency of traditional 3D production at a fraction of conventional timelines—ready for branded mascots, AI commercials, and scalable YouTube IP channels.',
+        result='A repeatable, broadcast-ready 3D AI animation pipeline that achieves Pixar-style character warmth and multi-episode continuity at a fraction of traditional 3D studio timelines—ideal for branded mascots, commercial storytelling, and scalable YouTube IP channels.',
         deliverables=[
-            '3D Character Bible & Multi-Scene Prompt Architecture (Midjourney)',
-            'Generative Motion Direction & Camera Kinematics (Kling AI & Runway Gen-3)',
-            'Vocal Synthesis, Lip-Sync & Foley Sound Design (ElevenLabs & CapCut Pro)',
-            'High-CTR Thumbnail Design & YouTube Studio SEO Architecture'
+            'Multi-Episode 3D Character Bible & Style Locking (Midjourney)',
+            'Character Kinematics, Prop Interaction & Camera Motion (Kling AI & Runway Gen-3)',
+            'Expressive Voice Synthesis, Lip-Sync & Foley Audio Engineering (ElevenLabs & CapCut Pro)',
+            'Turnkey YouTube Series Production & Retention Optimization'
         ],
         next='gloria-cup',
         next_title='Gloria Cup Café'
@@ -288,9 +338,13 @@ for c in CASES:
     bullets = ''.join('<li>' + escape(b) + '</li>' for b in c['ideas'])
     deliverables = ''.join('<li>' + escape(b) + '</li>' for b in c['deliverables'])
     extra_html = c.get('extra_showcase', '')
+    if c.get('video_hero'):
+        hero_media_html = f'<video class="case-art" src="../assets/{c["video_hero"]}" autoplay muted loop playsinline preload="metadata"></video>'
+    else:
+        hero_media_html = f'<img class="case-art" src="../assets/{c["image"]}" alt="{escape(c["title"])} case study visual cover" width="1200" height="1020">'
     html = (
         head
-        + f'''<body class="case-page--{c['theme']}">{NAV}<main id="main"><section class="case-header"><div class="container"><div class="case-breadcrumb"><a href="../index.html">Home</a><span> / </span><a href="../index.html#work">Selected work</a><span> / </span>{escape(c['title'])}</div><div class="case-kicker">{escape(c['index'])} / {escape(c['kind'])}</div><h1 class="display case-title">{escape(c['title'])}<span style="color:var(--coral)">.</span></h1><p class="case-subtitle">{escape(c['sub'])}</p></div></section><div class="container">{extra_html}<img class="case-art" src="../assets/{c['image']}" alt="{escape(c['title'])} case study visual cover" width="1200" height="1020"><div class="case-details"><div class="case-detail"><small>Client / Showcase</small><strong>{escape(c['brand'])}</strong></div><div class="case-detail"><small>Role</small><strong>{escape(c['role'])}</strong></div><div class="case-detail"><small>Core Stack &amp; Scope</small><strong>{escape(c['scope'])}</strong></div><div class="case-detail"><small>Key Highlight</small><strong>{escape(c['year'])}</strong></div></div></div><div class="container case-content"><section class="case-story"><h2>The challenge.</h2><div><p>{escape(c['challenge'])}</p></div></section><section class="case-story"><h2>Strategic direction.</h2><div><p>{escape(c['direction'])}</p></div></section><section class="case-story"><h2>Execution in motion.</h2><div><ul>{bullets}</ul></div></section><section class="case-story"><h2>Commercial impact.</h2><div><p>{escape(c['result'])}</p></div></section><section class="case-story"><h2>Deliverables &amp; stack.</h2><div><p>Core production capabilities and deliverables executed in this workflow:</p><ul>{deliverables}</ul></div></section><div class="case-follow"><div><div class="eyebrow">KEEP EXPLORING</div><h3>Up next: <span class="serif">{escape(c['next_title'])}</span></h3></div><a href="{c['next']}.html">View next story ↗</a></div></div><section class="contact-section"><div class="container"><div class="section-kicker">WANT RESULTS LIKE THIS?</div><h2 class="display" style="font-size:clamp(67px,10vw,145px)">Let's <span class="serif">build it.</span></h2><div class="contact-buttons" style="margin-top:28px"><a class="button" href="../contact.html">Book a project or retainer ↗</a><a class="button button--outline" href="https://wa.me/923024292224?text=Hi%20Marina%2C%20I%20saw%20your%20{escape(c['title'])}%20case%20study%20and%20would%20love%20to%20chat." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div></div></section></main>{FOOT}</body></html>'''
+        + f'''<body class="case-page--{c['theme']}">{NAV}<main id="main"><section class="case-header"><div class="container"><div class="case-breadcrumb"><a href="../index.html">Home</a><span> / </span><a href="../index.html#work">Selected work</a><span> / </span>{escape(c['title'])}</div><div class="case-kicker">{escape(c['index'])} / {escape(c['kind'])}</div><h1 class="display case-title">{escape(c['title'])}<span style="color:var(--coral)">.</span></h1><p class="case-subtitle">{escape(c['sub'])}</p></div></section><div class="container">{extra_html}{hero_media_html}<div class="case-details"><div class="case-detail"><small>Client / Showcase</small><strong>{escape(c['brand'])}</strong></div><div class="case-detail"><small>Role</small><strong>{escape(c['role'])}</strong></div><div class="case-detail"><small>Core Stack &amp; Scope</small><strong>{escape(c['scope'])}</strong></div><div class="case-detail"><small>Key Highlight</small><strong>{escape(c['year'])}</strong></div></div></div><div class="container case-content"><section class="case-story"><h2>The challenge.</h2><div><p>{escape(c['challenge'])}</p></div></section><section class="case-story"><h2>Strategic direction.</h2><div><p>{escape(c['direction'])}</p></div></section><section class="case-story"><h2>Execution in motion.</h2><div><ul>{bullets}</ul></div></section><section class="case-story"><h2>Commercial impact.</h2><div><p>{escape(c['result'])}</p></div></section><section class="case-story"><h2>Deliverables &amp; stack.</h2><div><p>Core production capabilities and deliverables executed in this workflow:</p><ul>{deliverables}</ul></div></section><div class="case-follow"><div><div class="eyebrow">KEEP EXPLORING</div><h3>Up next: <span class="serif">{escape(c['next_title'])}</span></h3></div><a href="{c['next']}.html">View next story ↗</a></div></div><section class="contact-section"><div class="container"><div class="section-kicker">WANT RESULTS LIKE THIS?</div><h2 class="display" style="font-size:clamp(67px,10vw,145px)">Let's <span class="serif">build it.</span></h2><div class="contact-buttons" style="margin-top:28px"><a class="button" href="../contact.html">Book a project or retainer ↗</a><a class="button button--outline" href="https://wa.me/923024292224?text=Hi%20Marina%2C%20I%20saw%20your%20{escape(c['title'])}%20case%20study%20and%20would%20love%20to%20chat." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div></div></section></main>{FOOT}</body></html>'''
     )
     (out_dir / f"{c['slug']}.html").write_text(html, encoding='utf-8')
 
