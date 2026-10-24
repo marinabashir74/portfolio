@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://marinabashir.netlify.app/sitemap.xml
