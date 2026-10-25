@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 160" role="img" aria-label="HBL Habib Bank Limited Official Logo">
+  <rect width="420" height="160" rx="14" fill="#008269"/>
+  <!-- Bold geometric H B L vector paths -->
+  <g fill="#ffffff">
+    <!-- H -->
+    <path d="M38 36h22v33h30V36h22v88H90V88H60v36H38V36z"/>
+    <!-- B -->
+    <path d="M128 36h44c18 0 29 9 29 22 0 9-5 16-13 19 10 3 16 11 16 22 0 16-12 25-32 25h-44V36zm22 35h18c7 0 11-4 11-9 0-6-4-9-11-9h-18v18zm0 36h20c8 0 13-4 13-10 0-6-5-10-13-10h-20v20z"/>
+    <!-- L -->
+    <path d="M218 36h22v69h38v19h-60V36z"/>
+  </g>
+  <!-- Divider line -->
+  <line x1="296" y1="34" x2="296" y2="126" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- Urdu & English Bank Title -->
+  <text x="358" y="76" fill="#ffffff" font-family="'Noto Nastaliq Urdu', 'Geeza Pro', 'Arial', sans-serif" font-size="28" font-weight="700" text-anchor="middle">حبیب بینک</text>
+  <text x="358" y="106" fill="#d7f5ee" font-family="'DM Sans', 'Arial', sans-serif" font-size="10.5" font-weight="800" letter-spacing="1.8" text-anchor="middle">HABIB BANK</text>
+  <text x="358" y="121" fill="#d7f5ee" font-family="'DM Sans', 'Arial', sans-serif" font-size="10.5" font-weight="800" letter-spacing="1.8" text-anchor="middle">LIMITED</text>
+</svg>

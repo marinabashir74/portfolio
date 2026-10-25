@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="HBL Icon">
+  <rect width="120" height="120" rx="60" fill="#008269"/>
+  <g fill="#ffffff">
+    <path d="M18 38h11v16h14V38h11v44H43V64H29v18H18V38z"/>
+    <path d="M60 38h21c9 0 14 4.5 14 11 0 4.5-2.5 8-6.5 9.5 5 1.5 8 5.5 8 11 0 8-6 12.5-16 12.5H60V38zm11 17.5h8.5c3.5 0 5.5-2 5.5-4.5 0-3-2-4.5-5.5-4.5H71v9zm0 18h9.5c4 0 6.5-2 6.5-5s-2.5-5-6.5-5H71v10z"/>
+    <path d="M101 38h11v34.5h18V82h-29V38z" transform="translate(-3,0) scale(0.88,1)"/>
+  </g>
+</svg>
