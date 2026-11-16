@@ -180,7 +180,7 @@ FURNITURE_SHOWCASE_HTML = '''
 ALPHABET_SHOWCASE_HTML = '''
 <div class="brand-bar">
   <div class="brand-bar-info">
-    <div class="brand-bar-logo" style="display:grid;place-items:center;background:var(--lime);color:var(--ink);font-weight:900;font-size:22px">3D</div>
+    <img class="brand-bar-logo" src="../assets/alphabet/alphabet-logo.jpg" alt="Alphabet Adventure Land official logo" width="64" height="64">
     <div>
       <h2>Alphabet Adventure Land · <span style="color:var(--lime)">3D AI Animated Series</span></h2>
       <p>Multi-Episode 3D Character Continuity · Google Flow · Picsart AI · Midjourney (--cref) · Kling AI &amp; Runway Gen-3 · ElevenLabs Lip-Sync</p>
