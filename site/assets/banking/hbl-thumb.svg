@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="HBL Team Leader of 12 Members Experience Thumbnail">
+  <defs>
+    <linearGradient id="hblBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#005f4c"/>
+      <stop offset="55%" stop-color="#008269"/>
+      <stop offset="100%" stop-color="#004436"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="240" fill="url(#hblBg)"/>
+  <circle cx="650" cy="40" r="140" fill="#ffffff" fill-opacity="0.06"/>
+  <circle cx="580" cy="210" r="95" fill="#e5ff70" fill-opacity="0.1"/>
+  <!-- Left: Official HBL Brand Card -->
+  <rect x="28" y="34" width="290" height="172" rx="14" fill="#ffffff" stroke="#1c2521" stroke-width="2.5"/>
+  <rect x="46" y="54" width="254" height="96" rx="10" fill="#008269"/>
+  <g fill="#ffffff" transform="translate(34, 42) scale(0.62)">
+    <path d="M38 36h22v33h30V36h22v88H90V88H60v36H38V36z"/>
+    <path d="M128 36h44c18 0 29 9 29 22 0 9-5 16-13 19 10 3 16 11 16 22 0 16-12 25-32 25h-44V36zm22 35h18c7 0 11-4 11-9 0-6-4-9-11-9h-18v18zm0 36h20c8 0 13-4 13-10 0-6-5-10-13-10h-20v20z"/>
+    <path d="M218 36h22v69h38v19h-60V36z"/>
+    <line x1="296" y1="34" x2="296" y2="126" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2.5"/>
+    <text x="358" y="80" fill="#ffffff" font-family="'Arial', sans-serif" font-size="28" font-weight="700" text-anchor="middle">حبیب بینک</text>
+    <text x="358" y="112" fill="#d7f5ee" font-family="'DM Sans', Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="1.8" text-anchor="middle">HABIB BANK LTD</text>
+  </g>
+  <text x="173" y="182" fill="#005f4c" font-family="'DM Sans', Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="1.5" text-anchor="middle">PAKISTAN'S #1 PRIVATE BANK</text>
+  <!-- Right: Leadership Stat Highlight -->
+  <rect x="344" y="34" width="348" height="172" rx="14" fill="#062e25" fill-opacity="0.72" stroke="#e5ff70" stroke-width="1.5" stroke-opacity="0.65"/>
+  <text x="372" y="74" fill="#e5ff70" font-family="'DM Sans', Arial, sans-serif" font-size="12" font-weight="900" letter-spacing="2">CORPORATE &amp; BRANCH LEADERSHIP</text>
+  <text x="372" y="128" fill="#ffffff" font-family="'DM Sans', Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-1.5">12 Members</text>
+  <text x="372" y="158" fill="#d5f5ec" font-family="'DM Sans', Arial, sans-serif" font-size="15" font-weight="700">Managed as Team Leader at HBL</text>
+  <text x="372" y="184" fill="#a5d8cb" font-family="'DM Sans', Arial, sans-serif" font-size="12" font-weight="600">Sales Targets · Client Portfolios · Team Coaching</text>
+</svg>
