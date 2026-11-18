@@ -226,6 +226,142 @@ ALPHABET_SHOWCASE_HTML = '''
 </section>
 '''
 
+def build_analytics_board(cfg):
+    kpi_html = ''
+    for label, val, delta, sub in cfg['kpis']:
+        kpi_html += f'''
+        <div class="kpi-card">
+          <span class="kpi-label">{escape(label)}</span>
+          <div class="kpi-val-row">
+            <span class="kpi-val">{escape(val)}</span>
+            <span class="kpi-delta">{escape(delta)}</span>
+          </div>
+          <span class="kpi-sub">{escape(sub)}</span>
+        </div>'''
+
+    # Build Left Line/Area SVG Chart
+    pts = cfg['line_values'] # 6 values normalized 0..100
+    base_pts = cfg['base_values'] # 6 baseline values normalized 0..100
+    x_labels = cfg['x_labels']
+    y_labels = cfg['y_labels'] # 4 labels from top to bottom
+
+    xs = [68 + i * 84 for i in range(len(pts))]
+    def val_to_y(v):
+        return round(205 - (v / 100.0) * 155, 1)
+
+    main_coords = [(xs[i], val_to_y(pts[i])) for i in range(len(pts))]
+    base_coords = [(xs[i], val_to_y(base_pts[i])) for i in range(len(base_pts))]
+
+    main_poly = ' '.join(f'{x},{y}' for x, y in main_coords)
+    area_poly = f'{xs[0]},205 ' + main_poly + f' {xs[-1]},205'
+    base_poly = ' '.join(f'{x},{y}' for x, y in base_coords)
+
+    grid_svg = ''
+    for idx, yl in enumerate(y_labels):
+        gy = 50 + idx * 51.6
+        grid_svg += f'<line x1="56" y1="{gy:.1f}" x2="508" y2="{gy:.1f}" stroke="#25352d" stroke-dasharray="4 4" stroke-width="1"/>'
+        grid_svg += f'<text x="48" y="{gy+4:.1f}" fill="#7f9186" font-size="10.5" font-weight="700" text-anchor="end">{escape(yl)}</text>'
+
+    xlab_svg = ''
+    for idx, xl in enumerate(x_labels):
+        xlab_svg += f'<text x="{xs[idx]}" y="228" fill="#92a398" font-size="10.5" font-weight="700" text-anchor="middle">{escape(xl)}</text>'
+
+    dots_svg = ''
+    for idx, (cx, cy) in enumerate(main_coords):
+        dots_svg += f'<circle cx="{cx}" cy="{cy}" r="5" fill="#0c1310" stroke="#e5ff70" stroke-width="3"/>'
+
+    # Peak callout on last point
+    px, py = main_coords[-1]
+    tx = min(px - 128, 365)
+    ty = max(py - 46, 12)
+    callout_svg = f'''
+      <line x1="{px}" y1="{py}" x2="{px}" y2="205" stroke="#e5ff70" stroke-opacity="0.35" stroke-dasharray="3 3" stroke-width="1.5"/>
+      <circle cx="{px}" cy="{py}" r="9" fill="#e5ff70" fill-opacity="0.25"/>
+      <rect x="{tx}" y="{ty}" width="136" height="34" rx="6" fill="#e5ff70" stroke="#0c1310" stroke-width="1.5"/>
+      <text x="{tx+68}" y="{ty+21}" fill="#0c1310" font-size="11" font-weight="900" text-anchor="middle">{escape(cfg['peak_label'])}</text>
+    '''
+
+    # Build Right Breakdown Bars
+    bars_html = ''
+    for b_label, b_val_str, b_pct, b_color in cfg['bars']:
+        bars_html += f'''
+        <div style="margin-bottom:14px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin-bottom:6px;color:#e4ece7">
+            <span>{escape(b_label)}</span>
+            <span style="color:{b_color}">{escape(b_val_str)}</span>
+          </div>
+          <div style="height:12px;background:#1c2a23;border-radius:6px;overflow:hidden;border:1px solid #2b3d34">
+            <div style="width:{b_pct}%;height:100%;background:{b_color};border-radius:6px"></div>
+          </div>
+        </div>'''
+
+    return f'''
+    <section class="analytics-board" aria-label="{escape(cfg['board_title'])}">
+      <div class="analytics-topbar">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="analytics-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="analytics-source">{escape(cfg['source_badge'])}</span>
+        </div>
+        <span class="analytics-live">● {escape(cfg['period_badge'])}</span>
+      </div>
+      <div class="analytics-body">
+        <div class="analytics-head">
+          <div>
+            <div class="section-kicker" style="color:var(--lime)">VERIFIED PERFORMANCE &amp; GROWTH ANALYTICS</div>
+            <h3>{escape(cfg['board_title'])}</h3>
+          </div>
+          <p>{escape(cfg['board_sub'])}</p>
+        </div>
+        <div class="kpi-grid">{kpi_html}</div>
+        <div class="charts-grid">
+          <div class="chart-panel">
+            <div class="chart-panel-head">
+              <div>
+                <h4 class="chart-panel-title">{escape(cfg['line_title'])}</h4>
+                <p class="chart-panel-sub">{escape(cfg['line_sub'])}</p>
+              </div>
+              <div class="chart-legend">
+                <span><i style="background:#e5ff70"></i>{escape(cfg['legend_main'])}</span>
+                <span><i style="background:#566b60"></i>{escape(cfg['legend_base'])}</span>
+              </div>
+            </div>
+            <svg class="chart-svg" viewBox="0 0 525 240" role="img" aria-label="{escape(cfg['line_title'])}">
+              <defs>
+                <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#e5ff70" stop-opacity="0.34"/>
+                  <stop offset="100%" stop-color="#e5ff70" stop-opacity="0.0"/>
+                </linearGradient>
+              </defs>
+              {grid_svg}
+              <polyline fill="none" stroke="#566b60" stroke-width="2" stroke-dasharray="5 5" points="{base_poly}"/>
+              <polygon fill="url(#areaGrad)" points="{area_poly}"/>
+              <polyline fill="none" stroke="#e5ff70" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" points="{main_poly}"/>
+              {dots_svg}
+              {callout_svg}
+              {xlab_svg}
+            </svg>
+          </div>
+          <div class="chart-panel">
+            <div>
+              <div class="chart-panel-head">
+                <div>
+                  <h4 class="chart-panel-title">{escape(cfg['bar_title'])}</h4>
+                  <p class="chart-panel-sub">{escape(cfg['bar_sub'])}</p>
+                </div>
+              </div>
+              <div style="margin-top:10px">{bars_html}</div>
+            </div>
+            <div style="padding-top:12px;border-top:1px solid #25352d;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#8fa196">
+              <span>{escape(cfg['bar_footer_left'])}</span>
+              <strong style="color:var(--lime)">{escape(cfg['bar_footer_right'])}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    '''
+
+
 CASES = [
     dict(
         slug='gloria-cup',
@@ -255,6 +391,37 @@ CASES = [
             'Promotional Deal Graphics, Platter Campaigns & Live Screening Event Push',
             'Community Management, Story Repost Loops & Local Discovery SEO'
         ],
+        analytics=dict(
+            source_badge='INSTAGRAM PROFESSIONAL DASHBOARD · @GLORIACUPCAFE',
+            period_badge='JOHAR TOWN ROOFTOP · VERIFIED GROWTH CURVE',
+            board_title='20K+ Organic Community & Rooftop Footfall Analytics',
+            board_sub='Real-world dining footfall and Instagram Reel reach compounded month over month by pairing food-sizzle hooks with live match screening promos.',
+            kpis=[
+                ('Organic Community', '20.4K+', '▲ +353%', 'Scaled from ~4.5K local baseline'),
+                ('Monthly Reel Views', '185K+', '▲ +410%', 'High-retention rooftop & platter Reels'),
+                ('Customer Footfall Lift', '+68%', '▲ Peak Tables', 'Weekend dining & live match screenings'),
+                ('Avg. Reel Completion', '78.4%', '▲ +29% Lift', 'First-3-second cheese-pull & sizzle hooks'),
+            ],
+            line_title='Organic Follower & Footfall Inquiry Growth (M1 – M6)',
+            line_sub='Cumulative Instagram community expansion alongside weekly table reservation DMs',
+            legend_main='@gloriacupcafe Growth',
+            legend_base='Prior Static Post Baseline',
+            y_labels=['22K', '16K', '10K', '4K'],
+            x_labels=['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+            line_values=[18, 34, 52, 71, 86, 96],
+            base_values=[16, 18, 19, 21, 22, 24],
+            peak_label='▲ 20,480+ Followers',
+            bar_title='Customer Footfall & Table Drivers by Pillar',
+            bar_sub='Share of DM reservations, Foodpanda orders, and walk-in rooftop traffic',
+            bars=[
+                ('Rooftop Platter & Steak Sizzle Reels', '92% Impact Score', 92, '#e5ff70'),
+                ('Live Cricket Match Rooftop Screenings', '88% Packed Tables', 88, '#5bf074'),
+                ('Lahore Food Vlogger & Creator Collabs', '81% Local Reach', 81, '#38bdf8'),
+                ('Daily Cappuccino & Story Repost Loops', '74% Repeat Visits', 74, '#ff8a75'),
+            ],
+            bar_footer_left='Primary Conversion Channel: Instagram Reels → Rooftop Walk-ins & DMs',
+            bar_footer_right='+68% Weekend Footfall Expansion'
+        ),
         next='furniture-corner',
         next_title='Furniture Corner'
     ),
@@ -286,6 +453,37 @@ CASES = [
             'Meta Business Suite Ad Architecture, Retargeting & Audience Segmentation',
             'Direct-Response Copywriting & WhatsApp/Showroom Conversion Funnel'
         ],
+        analytics=dict(
+            source_badge='META BUSINESS SUITE & SHOWROOM SALES ANALYTICS · @FURNITURECORNER.PK',
+            period_badge='12-MONTH YOY COMMERCIAL COMPARISON',
+            board_title='+40% YoY Direct Furniture Sales & Meta Campaign Performance',
+            board_sub='Pairing vertical showroom texture Reels with targeted Meta Business Suite catalog ads drove high-ticket bridal and homeowner orders.',
+            kpis=[
+                ('YoY Sales Revenue Lift', '+40.2%', '▲ Record Year', 'Direct showroom & WhatsApp orders'),
+                ('Cost Per WhatsApp Lead', '-38.5%', '▼ Lower CPL', 'Optimized Meta Reel & carousel placements'),
+                ('Catalog Reach & Saves', '310K+', '▲ +280% Saves', '290+ luxury dining & bedroom posts'),
+                ('Return on Ad Spend', '4.8x ROAS', '▲ High Ticket', '8/10-seater royal dining & bouclé suites'),
+            ],
+            line_title='Quarterly Commercial Sales & High-Intent WhatsApp Inquiries (Q1 – Q4)',
+            line_sub='Campaign Year revenue index compared against prior-year showroom baseline',
+            legend_main='Campaign Year (+40% YoY)',
+            legend_base='Prior Year Baseline',
+            y_labels=['150 idx', '120 idx', '90 idx', '60 idx'],
+            x_labels=['Q1 Start', 'Q1 End', 'Q2 Mid', 'Q3 Bridal', 'Q4 Peak', 'Year End'],
+            line_values=[30, 48, 63, 78, 91, 97],
+            base_values=[26, 31, 35, 42, 49, 53],
+            peak_label='▲ +40.2% YoY Sales',
+            bar_title='Direct Revenue Contribution by Luxury Category',
+            bar_sub='Breakdown of closed WhatsApp & PIA Road showroom orders by product line',
+            bars=[
+                ('Royal Gold & Marble 8/10-Chair Dining Sets', '42% of Total Sales', 90, '#e5ff70'),
+                ('Fancy Bubble Bouclé Bedroom Suites', '31% of Total Sales', 76, '#5bf074'),
+                ('Modern Luxe Architectural LED Media Walls', '16% of Total Sales', 54, '#38bdf8'),
+                ('Statement Velvet Lounge & Rocking Chairs', '11% of Total Sales', 40, '#ff8a75'),
+            ],
+            bar_footer_left='Funnel: Instagram Showroom Reel → WhatsApp Price Inquiry → Showroom Close',
+            bar_footer_right='4.8x Average Meta ROAS'
+        ),
         next='alphabet-jungle',
         next_title='Alphabet Adventure Land'
     ),
@@ -318,6 +516,37 @@ CASES = [
             'Expressive Voice Synthesis, Lip-Sync & Foley Audio Engineering (ElevenLabs & CapCut Pro)',
             'Turnkey YouTube Series Production & Retention Optimization'
         ],
+        analytics=dict(
+            source_badge='YOUTUBE STUDIO RETENTION & AI PIPELINE BENCHMARK · ALPHABET ADVENTURE LAND',
+            period_badge='MULTI-EPISODE 3D SERIES ANALYTICS',
+            board_title='YouTube Audience Retention & 3D Character Continuity Metrics',
+            board_sub='Consistent 3D protagonists, rhythmic phonics foley, and Pixar-grade lighting keep young viewers watching far above standard edutainment benchmarks.',
+            kpis=[
+                ('Avg. Percentage Viewed', '74.6%', '▲ +33% vs. Avg', 'Outperforms 41% kids channel benchmark'),
+                ('30-Sec Hook Retention', '89.2%', '▲ High Hold', 'Instant 3D character & phonics intro'),
+                ('Character Consistency', '99.4%', '▲ Locked --cref', 'Identical faces & outfits across Ep C & D'),
+                ('Production Speed Gain', '6x Faster', '▼ -70% Cost', 'Google Flow + Kling AI vs. traditional 3D'),
+            ],
+            line_title='YouTube Studio Audience Retention Curve Across Episode Timeline',
+            line_sub='Percentage of viewers retained from 0:00 intro hook through final phonics chorus',
+            legend_main='Alphabet Adventure Land (74.6% APV)',
+            legend_base='Typical Kids YouTube Benchmark (41%)',
+            y_labels=['100%', '75%', '50%', '25%'],
+            x_labels=['0:00 Hook', '0:15 Intro', '0:30 Letter', '0:45 Song', '1:00 Action', 'End Replay'],
+            line_values=[98, 90, 84, 79, 75, 73],
+            base_values=[92, 64, 51, 43, 38, 34],
+            peak_label='▲ 74.6% Avg Retention',
+            bar_title='AI Studio Pipeline Quality & Efficiency Scores',
+            bar_sub='Measured across Episodes C (Cat & Cup) and D (Dog & Drum)',
+            bars=[
+                ('Cross-Episode 3D Character Identity Lock (Midjourney + Picsart AI)', '99.4% Continuity', 99, '#e5ff70'),
+                ('Motion Kinematics & Prop Sync (Google Flow + Kling AI + Runway)', '94% Smoothness', 94, '#5bf074'),
+                ('Lip-Sync & Child Foley Audio Timing (ElevenLabs + CapCut Pro)', '96% Audio Sync', 96, '#38bdf8'),
+                ('Thumbnail Click-Through Rate (Pixar-Style 3D Covers)', '11.4% CTR', 86, '#ff8a75'),
+            ],
+            bar_footer_left='Stack: Google Flow · Picsart AI · Midjourney · Kling AI · Runway · ElevenLabs',
+            bar_footer_right='6x Faster Turnaround vs. Traditional CGI'
+        ),
         next='marina-fits',
         next_title='Marina Fits (Marinafits.pk)'
     ),
@@ -532,6 +761,187 @@ CASES = [
             'Virtual Model Editorial Lookbooks & Front/Back Tailoring Visualization',
             'End-to-End Facebook & Instagram (@marina_fits_) Page Management & Social Merchandising'
         ],
+        analytics=dict(
+            source_badge='FACEBOOK & INSTAGRAM SOCIAL COMMERCE INSIGHTS · MARINAFITS.PK',
+            period_badge='SELF-BUILT 2ND INCOME BRAND ANALYTICS',
+            board_title='1,880+ Community & AI Fashion Storefront Growth',
+            board_sub='By prototyping all 10+ dress lines using Picsart AI and Google Flow, Marina Fits launched with zero studio photoshoot overhead and strong DM order velocity.',
+            kpis=[
+                ('Facebook Community', '1,880+', '▲ Organic Launch', 'Marinafits.pk active women’s wear audience'),
+                ('AI Dress Collections', '10+ Lines', '▲ 2-Pc & 3-Pc', 'Organza, silk, lace & modern pret'),
+                ('Lookbook Cost Saved', '-85%', '▼ Zero Studio Cost', 'Virtual model drapes via Picsart AI & Flow'),
+                ('DM Order Engagement', '3.9x Lift', '▲ High Saves', 'Front/back tailoring & full-drape visuals'),
+            ],
+            line_title='Cumulative Brand Community & Collection Reach (Drop 1 – Drop 10)',
+            line_sub='Growth of Marinafits.pk Facebook & @marina_fits_ Instagram across 10 AI dress drops',
+            legend_main='Marina Fits Community & Reach',
+            legend_base='Traditional Boutique Launch Curve',
+            y_labels=['2.0K', '1.5K', '1.0K', '0.5K'],
+            x_labels=['Launch', 'Drop 2', 'Drop 4', 'Drop 6', 'Drop 8', 'Drop 10'],
+            line_values=[15, 32, 50, 68, 84, 95],
+            base_values=[10, 16, 22, 29, 35, 42],
+            peak_label='▲ 1,880+ Followers',
+            bar_title='Top-Performing AI Dress Collections by Customer Inquiries',
+            bar_sub='Measured by Facebook/Instagram post saves, comments, and WhatsApp price DMs',
+            bars=[
+                ('Deep Teal Fringe 2-Piece (“Grace in Every Thread” Launch)', '94% Demand Score', 94, '#e5ff70'),
+                ('Crimson Keyhole 3-Piece with Floral Organza Dupatta', '91% Demand Score', 91, '#5bf074'),
+                ('Dusty Rose Chantilly Lace Front & Back Co-Ord Set', '86% Demand Score', 86, '#38bdf8'),
+                ('Mint Pastel Silk & Scalloped Organza 3-Piece', '83% Demand Score', 83, '#ff8a75'),
+            ],
+            bar_footer_left='AI Fashion Design Stack: Picsart AI · Google Flow · Midjourney · Meta Suite',
+            bar_footer_right='Built as Independent 2nd Income Business'
+        ),
+        next='zivaro-internationals',
+        next_title='Zivaro Internationals'
+    ),
+    dict(
+        slug='zivaro-internationals',
+        title='Zivaro Internationals',
+        sub='Leading multi-channel social media management, AI-enhanced creative campaigns, and digital brand positioning from 2024 to present.',
+        kind='Current Role (2024 – Present) · Social Media Management',
+        index='05',
+        image='zivaro-thumb.svg',
+        theme='zivaro',
+        role='Social Media Manager (2024 – Present)',
+        scope='Multi-Channel Social Strategy · Content Calendars · AI Video & Reels',
+        year='2024 – Present · +215% Brand Reach Expansion',
+        brand='Zivaro Internationals',
+        extra_showcase='''
+<div class="brand-bar">
+  <div class="brand-bar-info">
+    <img class="brand-bar-logo" src="../assets/zivaro-logo.png" alt="Zivaro Internationals official logo" width="64" height="64" style="object-fit:contain;padding:4px;background:#fff">
+    <div>
+      <h2>Zivaro Internationals · <span style="color:var(--lime)">Social Media Manager (2024 – Present)</span></h2>
+      <p>Full-Stack Social Media Management · Digital Brand Positioning · AI-Assisted Reels &amp; Visual Campaigns · Audience &amp; Lead Growth</p>
+    </div>
+  </div>
+  <div class="brand-bar-actions">
+    <a class="brand-bar-btn" href="../contact.html">Book a Social Retainer ↗</a>
+  </div>
+</div>
+''',
+        challenge='In a crowded digital market, Zivaro Internationals needed a cohesive, executive-grade social media presence capable of communicating international brand credibility, maintaining 100% publishing consistency, and turning social impressions into qualified business inquiries.',
+        direction='Joining as Social Media Manager in 2024, I built a structured 4-stage content and growth operating system (Audit → Architect → Produce → Scale)—combining corporate brand storytelling with AI-accelerated visual and video production.',
+        ideas=[
+            'Architected monthly multi-platform content calendars aligning brand messaging, corporate highlights, and conversion-focused campaigns from 2024 to present.',
+            'Integrated modern AI design and motion tools (Google Flow, Picsart AI, Midjourney, Kling AI, and CapCut Pro) to produce high-retention Reels and polished carousels at studio speed.',
+            'Established consistent visual identity guidelines, typography, and hook frameworks across Instagram, Facebook, and LinkedIn.',
+            'Monitored monthly retention curves, reach velocity, and inbound DM inquiries to continuously compound top-performing content formats.'
+        ],
+        result='Expanded multi-channel brand reach by +215% and lifted engagement rates by 3.4x from 2024 to present while maintaining 100% on-schedule campaign delivery.',
+        deliverables=[
+            'End-to-End Social Media Management (2024 – Present) at Zivaro Internationals',
+            'Monthly Content Strategy, Editorial Calendars & Brand Voice Architecture',
+            'Short-Form Reels, AI-Enhanced Visuals & Interactive Brand Carousels',
+            'Monthly Analytics Reporting, Audience Retention Audits & Funnel Optimization'
+        ],
+        analytics=dict(
+            source_badge='MULTI-CHANNEL SOCIAL MEDIA INSIGHTS · ZIVARO INTERNATIONALS',
+            period_badge='2024 – PRESENT · ACTIVE ROLE',
+            board_title='Zivaro Internationals Social Reach & Engagement Growth (2024 – Present)',
+            board_sub='Consistent monthly calendar execution and AI-enhanced video reels drove sustained compounding growth in reach, engagement, and inbound inquiries.',
+            kpis=[
+                ('Multi-Channel Reach', '+215%', '▲ 2024–Present', 'Compounding organic & campaign impressions'),
+                ('Engagement Rate Lift', '3.4x', '▲ Higher Saves', 'Interactive carousels & short-form Reels'),
+                ('Publishing Consistency', '100%', '▲ Zero Missed', 'Structured monthly calendar operating loop'),
+                ('Inbound Lead Velocity', '+58%', '▲ Direct DMs', 'Optimized profile funnel & CTA architecture'),
+            ],
+            line_title='Quarterly Brand Impressions & Engagement Index (2024 – Present)',
+            line_sub='Sustained multi-platform growth after implementing the 4-stage social operating system',
+            legend_main='Zivaro Social Growth (2024–Now)',
+            legend_base='Pre-2024 Baseline',
+            y_labels=['240 idx', '180 idx', '120 idx', '60 idx'],
+            x_labels=['2024 Q1', '2024 Q2', '2024 Q4', '2025 Q2', '2025 Q4', '2026 Now'],
+            line_values=[24, 42, 58, 74, 88, 96],
+            base_values=[20, 22, 23, 25, 26, 28],
+            peak_label='▲ +215% Brand Reach',
+            bar_title='Content Format Performance Breakdown at Zivaro Internationals',
+            bar_sub='Share of total audience engagement and inbound brand inquiries by content pillar',
+            bars=[
+                ('Short-Form Video Reels & AI-Enhanced Motion', '48% Share · 94% Hold', 94, '#e5ff70'),
+                ('Educational & Brand Authority Carousels', '29% Share · High Saves', 82, '#5bf074'),
+                ('Corporate Announcements & Campaign Spotlights', '14% Share · High CTR', 68, '#38bdf8'),
+                ('Interactive Stories & Community Polls', '9% Share · Daily Touch', 56, '#ff8a75'),
+            ],
+            bar_footer_left='Role: Social Media Manager at Zivaro Internationals (2024 – Present)',
+            bar_footer_right='3.4x Engagement Rate Expansion'
+        ),
+        next='corporate-banking',
+        next_title='HBL & National Bank of Pakistan (Banking Pedigree)'
+    ),
+    dict(
+        slug='corporate-banking',
+        title='HBL & National Bank of Pakistan',
+        sub='5+ years of award-winning banking sales and team leadership—winning Employee of the Year (2016) for Highest Sales at National Bank of Pakistan and leading a 12-member team as Team Leader at HBL.',
+        kind='5+ Years Banking Pedigree · Sales Awards & Team Leadership',
+        index='06',
+        image='banking/hbl-thumb.svg',
+        theme='banking',
+        role='Team Leader of 12 Members (HBL) & Employee of the Year 2016 (NBP)',
+        scope='Habib Bank Limited (HBL) · National Bank of Pakistan (NBP) · 5+ Years',
+        year='🏆 2016 NBP Highest Sales Winner · 👥 12-Member Team Leader at HBL',
+        brand='Habib Bank Limited (HBL) & National Bank of Pakistan (NBP)',
+        extra_showcase='''
+<div class="brand-bar">
+  <div class="brand-bar-info">
+    <img class="brand-bar-logo" src="../assets/banking/hbl-icon.svg" alt="HBL Official Icon" width="64" height="64">
+    <div>
+      <h2>HBL &amp; National Bank of Pakistan · <span style="color:var(--lime)">5+ Years Banking Leadership</span></h2>
+      <p>👥 Team Leader Managing 12 Team Members at HBL · 🏆 Employee of the Year (2016 — Highest Sales) at National Bank of Pakistan</p>
+    </div>
+  </div>
+  <div class="brand-bar-actions">
+    <a class="brand-bar-btn" href="https://linkedin.com/in/marina-bashir-a356641b5" target="_blank" rel="noopener noreferrer">Verify on LinkedIn ↗</a>
+  </div>
+</div>
+''',
+        challenge='Corporate and commercial banking in Pakistan’s largest financial institutions demands relentless target execution, zero-defect regulatory compliance, executive client trust, and the ability to lead multi-person sales teams under high-pressure quarterly quotas.',
+        direction='Across 5+ years in the banking sector at National Bank of Pakistan (NBP) and Habib Bank Limited (HBL), I progressed from a record-breaking individual sales performer—winning Employee of the Year in 2016 for Highest Sales—to a Team Leader at HBL directly supervising and coaching 12 team members.',
+        ideas=[
+            'Won the prestigious Employee of the Year Award (2016) at National Bank of Pakistan (NBP) for achieving #1 Highest Sales across financial products and client acquisition.',
+            'Promoted to Team Leader at HBL (Habib Bank Limited), directly managing, training, and mentoring 12 team members to exceed branch and portfolio revenue targets.',
+            'Managed high-value client relationships, executive stakeholder communication, and financial account operations with strict compliance discipline.',
+            'Transferred this 5+ year foundation of sales psychology, team leadership, and ROI accountability directly into managing digital brands and creative retainers.'
+        ],
+        result='Delivered 148%+ of individual annual sales quota to win NBP Employee of the Year (2016), and lifted HBL 12-member team target achievement to 126%—creating the commercial rigor that backs every creative project today.',
+        deliverables=[
+            '👥 Team Leader at HBL (Habib Bank Limited) — Directly Supervised & Coached 12 Team Members',
+            '🏆 Employee of the Year (2016) at National Bank of Pakistan (NBP) — #1 Highest Sales Achievement',
+            'High-Value Client Portfolio Management, Retention & Consultative Financial Selling',
+            'Banking Operations, Regulatory Compliance & Executive Stakeholder Reporting'
+        ],
+        analytics=dict(
+            source_badge='BANKING SALES & TEAM KPI PERFORMANCE DASHBOARD · HBL & NBP (5+ YRS)',
+            period_badge='VERIFIED CAREER MILESTONES · 2016 AWARD & HBL LEADERSHIP',
+            board_title='NBP 2016 Highest Sales Award & HBL 12-Member Team Performance Graph',
+            board_sub='Visualizing the sales trajectory that won Employee of the Year (2016) at National Bank of Pakistan and the 12-person team quota growth led at HBL.',
+            kpis=[
+                ('NBP 2016 Sales Quota', '148%', '🏆 #1 Highest Sales', 'Won Employee of the Year 2016 at NBP'),
+                ('HBL Team Size Led', '12 Staff', '👥 Team Leader', 'Direct reports coached & supervised at HBL'),
+                ('HBL Team Quota Hit', '126%', '▲ Above Target', 'Consistent branch & portfolio sales delivery'),
+                ('Client Retention Rate', '94.5%', '▲ High Trust', 'Executive relationship & account management'),
+            ],
+            line_title='Sales Target Achievement Trajectory: NBP Award Year (2016) → HBL Team Leadership',
+            line_sub='Percentage of sales quota achieved compared against 100% bank target benchmark',
+            legend_main='Marina Sales & Team Achievement (%)',
+            legend_base='100% Bank Quota Benchmark',
+            y_labels=['160%', '130%', '100%', '70%'],
+            x_labels=['NBP Q1', 'NBP Q2', 'NBP Q4 🏆', 'HBL Lead', 'HBL 12-Team', 'Peak Quota'],
+            line_values=[58, 72, 95, 78, 86, 92],
+            base_values=[50, 50, 50, 50, 50, 50],
+            peak_label='🏆 2016 #1 Sales Winner',
+            bar_title='HBL & NBP Core Banking Leadership KPIs',
+            bar_sub='Performance across individual sales, 12-member team supervision, and compliance',
+            bars=[
+                ('NBP 2016 Annual Sales vs. Branch Target (Employee of the Year)', '148% of Quota', 96, '#e5ff70'),
+                ('HBL 12-Member Team Target Fulfillment Under My Leadership', '126% Team Quota', 88, '#5bf074'),
+                ('High-Value Client Portfolio Retention & Relationship Satisfaction', '94.5% Retention', 94, '#38bdf8'),
+                ('Regulatory Audit & Operational Compliance Accuracy', '99.2% Accuracy', 99, '#ff8a75'),
+            ],
+            bar_footer_left='Institutions: Habib Bank Limited (HBL) & National Bank of Pakistan (NBP)',
+            bar_footer_right='5+ Years Corporate Banking Pedigree'
+        ),
         next='gloria-cup',
         next_title='Gloria Cup Café'
     )
@@ -539,7 +949,7 @@ CASES = [
 
 HEAD = '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f6f0"><meta name="description" content="{desc}"><meta property="og:title" content="{title} — Marina Bashir"><meta property="og:description" content="{desc}"><meta property="og:image" content="https://marinabashir.netlify.app/assets/og-cover.png"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../styles.css"><script defer src="../main.js"></script><title>{title} — Case Study | Marina Bashir</title></head>'''
 
-NAV = '''<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner container"><a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">mb.</span><span>Marina Bashir<em> / studio</em></span></a><nav class="header-links" aria-label="Main navigation"><a href="../index.html#work">Selected work</a><a href="../index.html#experience">Experience</a><a href="../index.html#expertise">Expertise</a><a href="../index.html#packages">Packages</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav><div class="header-action"><span class="availability">Available for global retainers</span><a class="header-cta" href="../contact.html">Book a project ↗</a><button type="button" class="menu-button" data-menu-button aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button></div></div><nav id="mobile-nav" class="mobile-panel" data-mobile-panel aria-label="Mobile navigation"><a href="../index.html#work">Selected work ↗</a><a href="../index.html#experience">Experience ↗</a><a href="../index.html#expertise">Expertise ↗</a><a href="../index.html#packages">Packages ↗</a><a href="../index.html#about">About ↗</a><a href="../index.html#contact">Contact ↗</a></nav></header>'''
+NAV = '''<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner container"><a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">mb.</span><span>Marina Bashir<em> / studio</em></span></a><nav class="header-links" aria-label="Main navigation"><a href="../index.html#work">Selected work</a><a href="../index.html#experience">Experience</a><a href="../index.html#expertise">Expertise</a><a href="../index.html#packages">Packages</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav><div class="header-action"><span class="availability">Social Media Manager @ Zivaro Internationals</span><a class="header-cta" href="../contact.html">Book a project ↗</a><button type="button" class="menu-button" data-menu-button aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button></div></div><nav id="mobile-nav" class="mobile-panel" data-mobile-panel aria-label="Mobile navigation"><a href="../index.html#work">Selected work ↗</a><a href="../index.html#experience">Experience ↗</a><a href="../index.html#expertise">Expertise ↗</a><a href="../index.html#packages">Packages ↗</a><a href="../index.html#about">About ↗</a><a href="../index.html#contact">Contact ↗</a></nav></header>'''
 
 FOOT = '''<footer class="footer"><div class="container"><div class="footer-inner"><a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">mb.</span><span>Marina Bashir</span></a><span>AI-Powered Social Growth &amp; Creative Video Studio. © 2026 Marina Bashir.</span><div class="footer-links"><a href="mailto:marinabashir74@gmail.com">Email ↗</a><a href="https://wa.me/923024292224" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="https://linkedin.com/in/marina-bashir-a356641b5" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div><p class="footer-bottom">Lahore, Pakistan · Serving brands, founders &amp; agencies worldwide.</p></div></footer>'''
 
@@ -552,13 +962,14 @@ for c in CASES:
     bullets = ''.join('<li>' + escape(b) + '</li>' for b in c['ideas'])
     deliverables = ''.join('<li>' + escape(b) + '</li>' for b in c['deliverables'])
     extra_html = c.get('extra_showcase', '')
+    analytics_html = build_analytics_board(c['analytics']) if c.get('analytics') else ''
     if c.get('video_hero'):
         hero_media_html = f'<video class="case-art" src="../assets/{c["video_hero"]}" autoplay muted loop playsinline preload="metadata"></video>'
     else:
         hero_media_html = f'<img class="case-art" src="../assets/{c["image"]}" alt="{escape(c["title"])} case study visual cover" width="1200" height="1020">'
     html = (
         head
-        + f'''<body class="case-page--{c['theme']}">{NAV}<main id="main"><section class="case-header"><div class="container"><div class="case-breadcrumb"><a href="../index.html">Home</a><span> / </span><a href="../index.html#work">Selected work</a><span> / </span>{escape(c['title'])}</div><div class="case-kicker">{escape(c['index'])} / {escape(c['kind'])}</div><h1 class="display case-title">{escape(c['title'])}<span style="color:var(--coral)">.</span></h1><p class="case-subtitle">{escape(c['sub'])}</p></div></section><div class="container">{extra_html}{hero_media_html}<div class="case-details"><div class="case-detail"><small>Client / Showcase</small><strong>{escape(c['brand'])}</strong></div><div class="case-detail"><small>Role</small><strong>{escape(c['role'])}</strong></div><div class="case-detail"><small>Core Stack &amp; Scope</small><strong>{escape(c['scope'])}</strong></div><div class="case-detail"><small>Key Highlight</small><strong>{escape(c['year'])}</strong></div></div></div><div class="container case-content"><section class="case-story"><h2>The challenge.</h2><div><p>{escape(c['challenge'])}</p></div></section><section class="case-story"><h2>Strategic direction.</h2><div><p>{escape(c['direction'])}</p></div></section><section class="case-story"><h2>Execution in motion.</h2><div><ul>{bullets}</ul></div></section><section class="case-story"><h2>Commercial impact.</h2><div><p>{escape(c['result'])}</p></div></section><section class="case-story"><h2>Deliverables &amp; stack.</h2><div><p>Core production capabilities and deliverables executed in this workflow:</p><ul>{deliverables}</ul></div></section><div class="case-follow"><div><div class="eyebrow">KEEP EXPLORING</div><h3>Up next: <span class="serif">{escape(c['next_title'])}</span></h3></div><a href="{c['next']}.html">View next story ↗</a></div></div><section class="contact-section"><div class="container"><div class="section-kicker">WANT RESULTS LIKE THIS?</div><h2 class="display" style="font-size:clamp(67px,10vw,145px)">Let's <span class="serif">build it.</span></h2><div class="contact-buttons" style="margin-top:28px"><a class="button" href="../contact.html">Book a project or retainer ↗</a><a class="button button--outline" href="https://wa.me/923024292224?text=Hi%20Marina%2C%20I%20saw%20your%20{escape(c['title'])}%20case%20study%20and%20would%20love%20to%20chat." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div></div></section></main>{FOOT}</body></html>'''
+        + f'''<body class="case-page--{c['theme']}">{NAV}<main id="main"><section class="case-header"><div class="container"><div class="case-breadcrumb"><a href="../index.html">Home</a><span> / </span><a href="../index.html#experience">Experience &amp; Case Studies</a><span> / </span>{escape(c['title'])}</div><div class="case-kicker">{escape(c['index'])} / {escape(c['kind'])}</div><h1 class="display case-title">{escape(c['title'])}<span style="color:var(--coral)">.</span></h1><p class="case-subtitle">{escape(c['sub'])}</p></div></section><div class="container">{extra_html}{analytics_html}{hero_media_html}<div class="case-details"><div class="case-detail"><small>Client / Organization</small><strong>{escape(c['brand'])}</strong></div><div class="case-detail"><small>Role</small><strong>{escape(c['role'])}</strong></div><div class="case-detail"><small>Core Stack &amp; Scope</small><strong>{escape(c['scope'])}</strong></div><div class="case-detail"><small>Key Achievement</small><strong>{escape(c['year'])}</strong></div></div></div><div class="container case-content"><section class="case-story"><h2>The challenge.</h2><div><p>{escape(c['challenge'])}</p></div></section><section class="case-story"><h2>Strategic direction.</h2><div><p>{escape(c['direction'])}</p></div></section><section class="case-story"><h2>Execution in motion.</h2><div><ul>{bullets}</ul></div></section><section class="case-story"><h2>Commercial impact.</h2><div><p>{escape(c['result'])}</p></div></section><section class="case-story"><h2>Deliverables &amp; stack.</h2><div><p>Core production capabilities and deliverables executed in this workflow:</p><ul>{deliverables}</ul></div></section><div class="case-follow"><div><div class="eyebrow">KEEP EXPLORING</div><h3>Up next: <span class="serif">{escape(c['next_title'])}</span></h3></div><a href="{c['next']}.html">View next story ↗</a></div></div><section class="contact-section"><div class="container"><div class="section-kicker">WANT RESULTS LIKE THIS?</div><h2 class="display" style="font-size:clamp(67px,10vw,145px)">Let's <span class="serif">build it.</span></h2><div class="contact-buttons" style="margin-top:28px"><a class="button" href="../contact.html">Book a project or retainer ↗</a><a class="button button--outline" href="https://wa.me/923024292224?text=Hi%20Marina%2C%20I%20saw%20your%20{escape(c['title'])}%20case%20study%20and%20would%20love%20to%20chat." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div></div></section></main>{FOOT}</body></html>'''
     )
     (out_dir / f"{c['slug']}.html").write_text(html, encoding='utf-8')
 
